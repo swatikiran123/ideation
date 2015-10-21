@@ -1,0 +1,15 @@
+Search: <input type="text" ng-model="search.title">
+<ul>
+  <li ng-repeat="idea in ideaCollection | filter: search">
+    <a ng-show="!editing[$index]" href="#/{{idea._id}}">{{idea.title}}</a>
+    | {{idea.desc}}
+    | {{idea.postedBy}}
+    <button ng-show="!editing[$index]" ng-click="edit($index)">edit</button>
+    <button ng-show="!editing[$index]" ng-click="remove($index)">remove</button>
+
+    <input ng-show="editing[$index]" type="text" ng-model="idea.title">
+    <button ng-show="editing[$index]" ng-click="update($index)">update</button>
+    <button ng-show="editing[$index]" ng-click="cancel($index)">cancel</button>
+  </li>
+</ul>
+New Idea <input type="text" ng-model="newIdea"><button ng-click="save()">Create</button>

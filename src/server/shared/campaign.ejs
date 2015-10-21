@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="campaign-app">
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <ng-view></ng-view>
+
+    <!-- Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.min.js"></script>
+    <script src="/app/app.js"></script>
+    <script src="/app/campaign/campaign.js"></script>
+    <script src="/app/campaign/campaignControllerMain.js"></script>
+    <script src="/app/campaign/campaignControllerDetail.js"></script>
+    <script src="/app/campaign/campaignFactory.js"></script>
+    <script src="/app/campaign/campaignRouter.js"></script>
+  </body>
+</html>

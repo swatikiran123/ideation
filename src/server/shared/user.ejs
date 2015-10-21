@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="user-app">
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <ng-view></ng-view>
+
+    <!-- Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.min.js"></script>
+    <script src="/app/app.js"></script>
+    <script src="/app/user/user.js"></script>
+    <script src="/app/user/userControllerMain.js"></script>
+    <script src="/app/user/userControllerDetail.js"></script>
+    <script src="/app/user/userFactory.js"></script>
+    <script src="/app/user/userRouter.js"></script>
+  </body>
+</html>

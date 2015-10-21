@@ -1,0 +1,63 @@
+<div class="container" ng-controller="campaignControllerMain">
+
+Search: <input type="text" ng-model="search.title">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>         
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>sponsor</th>
+      <th>Desc</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input class="form-control" ng-model="campaign.title"></td>
+      <td><input class="form-control" ng-model="campaign.startDate"></td>
+      <td><input class="form-control" ng-model="campaign.endDate"></td>
+      <td><input class="form-control" ng-model="campaign.sponsor"></td>
+      <td><textarea ng-model="campaign.desc"></textarea></td>
+      <td>
+        <button class="btn btn-primary" ng-click="create()">Add Contact</button>
+        <button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;
+        <button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+    </tr>
+    <tr ng-repeat="campaign in campaignList | filter: search">
+      <td><a ng-show="!editing[$index]" href="#/{{campaign._id}}">{{campaign.title}}</a></td>
+      <td>{{campaign.startDate}}</td>
+      <td>{{campaign.endDate}}</td>
+      <td>{{campaign.sponsor}}</td>
+      <td>{{campaign.desc}}</td>
+      <td>
+        <a ng-show="!editing[$index]" href="#/{{campaign._id}}/view">View</a>
+        <button class="btn btn-warning" ng-click="edit(campaign._id)">Edit</button>
+        <button class="btn btn-danger" ng-click="remove(campaign._id)">Remove</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<br/>
+<h2>Model 2 data show</h2>
+<br/>
+
+<ul>
+  <li ng-repeat="campaign in campaignCollection | filter: search">
+    <a ng-show="!editing[$index]" href="#/{{campaign._id}}">{{campaign.title}}</a>
+    | {{campaign.desc}}
+    | {{campaign.startDate}}
+    | {{campaign.endDate}}
+    | {{campaign.sponsor}}
+    <button ng-show="!editing[$index]" ng-click="edit($index)">edit</button>
+    <button ng-show="!editing[$index]" ng-click="remove($index)">remove</button>
+
+    <input ng-show="editing[$index]" type="text" ng-model="campaign.title">
+    <button ng-show="editing[$index]" ng-click="update($index)">update</button>
+    <button ng-show="editing[$index]" ng-click="cancel($index)">cancel</button>
+  </li>
+</ul>
+New campaign <input type="text" ng-model="newCampaign"><button ng-click="save()">Create</button>
