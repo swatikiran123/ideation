@@ -7,14 +7,18 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
 var routes = require('./server/index/indexRouter');
 var todos = require('./server/todo/todoRouter');
 var campaignApi = require('./server/campaign/campaignRouter');
 var ideaApi = require('./server/idea/ideaRouter');
 var userApi = require('./server/user/userRouter');
 
+global.config = require('konfig')()
 var mongoose = require('mongoose');
-var databaseURI = 'mongodb://localhost/todoApp' + process.env.NODE_ENV;
+
+//var databaseURI = 'mongodb://localhost/ideation_' + [process.env.NODE_ENV || "dev"];
+var databaseURI = global.config.app.db_uri;
 
 mongoose.connect(databaseURI, function(err) {
   if (err) {

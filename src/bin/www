@@ -2,7 +2,8 @@
 var debug = require('debug')('ideation');
 var app = require('../server');
 
-app.set('port', process.env.PORT || 3000);
+//app.set('port', process.env.PORT || 3000);
+app.set('port', global.config.app.port);
 
 var server = app.listen(app.get('port'), function() {
   console.log('Ideation portal is now online listening on port ' + server.address().port);
