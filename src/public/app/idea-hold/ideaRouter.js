@@ -8,13 +8,8 @@ angular.module('ideaModule')
         controller: 'ideaControllerMain'
       })
 
-      .when('/:id/view', {
-        templateUrl: '/app/idea/idea-view-show.html',
-        controller: 'ideaControllerDetail'
-      })
-
       .when('/:id', {
-        templateUrl: '/app/idea/idea-view-edit.html',
+        templateUrl: '/app/idea/idea-view-detail.html',
         controller: 'ideaControllerDetail'
      });
   }]);

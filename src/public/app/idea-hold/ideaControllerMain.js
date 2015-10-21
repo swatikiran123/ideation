@@ -2,22 +2,18 @@
 
 angular.module('ideaModule')
   .controller('ideaControllerMain', ['$scope', 'ideaBinder', function ($scope, ideaBinder) {
+    $scope.editing = [];
     $scope.ideaCollection = ideaBinder.query();
+    console.log("ideaControllerMain invoked");
+    console.log(ideaCollection);
 
     $scope.save = function(){
-      var idea = new ideaBinder({ 
-        title: $scope.idea.title, 
-        desc: $scope.idea.desc, 
-        submittedBy: $scope.idea.submittedBy,
-        postedOn: $scope.idea.postOn, 
-        status: $scope.idea.status
-      });
+      if(!$scope.newIdea || $scope.newIdea.length < 1) return;
+      var idea = new ideaBinder({ title: $scope.newIdea});
 
-      console.log("adding new idea with title::")
-      console.log($scope.idea.title)
       idea.$save(function(){
-        $scope.ideaCollection.push($scope.idea);
-        $scope.idea = ""; // clear textbox
+        $scope.ideaCollection.push(idea);
+        $scope.newIdea = ''; // clear textbox
       });
     };
 
@@ -36,14 +32,9 @@ angular.module('ideaModule')
       $scope.editing[index] = false;
     };
 
-    $scope.deselect = function(){
-      $scope.idea = "";
-    }
-
     $scope.remove = function(index){
-      console.log("deleting::"+index);
-      //var idea = $scope.ideaCollection[index];
-      ideaBinder.remove({id: index}, function(){
+      var idea = $scope.ideaCollection[index];
+      ideaBinder.remove({id: idea._id}, function(){
         $scope.ideaCollection.splice(index, 1);
       });
     };

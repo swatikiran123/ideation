@@ -5,10 +5,10 @@ var mongoose = require('mongoose');
 var ideaSchema = new mongoose.Schema({
   title: String,
   desc: String,
-  submittedBy: { type: String, default: 'sankar' },
-  postedOn:  { type: Date, default: Date.now },
-  updatedOn:  { type: Date, default: Date.now }, 
-  status: { type: String, default: 'New' }
+  submittedBy: String,
+  postedOn:  String,
+  updatedOn: String,
+  status: String
 });
 
-module.exports = mongoose.model('ideaModel', ideaSchema);
+module.exports = mongoose.model('idea', ideaSchema);
