@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>compaign list</title>
+        
+       <link rel="shortcut icon" type="image/png" href="../assets/images/favicon.png">
+
+		<link rel="stylesheet" href="../assets/stylesheets/bootstrap.min.css">
+		<link rel="stylesheet" href="../assets/stylesheets/bootstrap-theme.min.css">
+        <link rel="stylesheet" media="screen" href="../assets/stylesheets/main.css">
+
+        <link rel="stylesheet" href="../assets/javascript/jquery-ui.css">
+
+	 
+
+		<script src="../assets/javascripts/jquery-1.11.3.min.js"></script>
+		<script src="../assets/javascripts/jquery-ui-1.11.4.min.js"></script>
+
+		<script src="../assets/javascripts/bootstrap.min.js"></script>
+		<script src="../assets/javascripts/main.js"></script>
+		  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/stylesheets/main.css">
+ <style>  @media (max-width: 500px) {
+     /* 500px is random value, adjust it as per your need */
+    .icon3{
+        display : block;
+        padding :  5px 5px;
+    }
+    .text1{
+        display:none;
+    }
+    
+nav {
+			
+			width: 8em;
+		}
+    
+}</style>
+        
+        
+    </head>
+    
+    <body>
+    
+
+      <nav>
+    <ul class="list-unstyled main-menu">
+
+    <!--Include your navigation here-->
+    <li class="text-left"><a href="#" id="nav-close">X</a></li>
+ 
+  
+			        <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span><span class="text1"> home</span></a></li>
+			        <li><a href="#"><span class="glyphicon glyphicon-user"></span><span class="text1"> profile</span></a></li>
+			        <li><a href="#"><span class="glyphicon glyphicon-envelope"></span><span class="text1"> mesgs</span><span class="badge">24</span></a></li>
+			        <li><a href="#"><span class="glyphicon glyphicon-envelope"></span><span class="text1" > mails</span></a></li>
+			              <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span><span class="text1"> home</span></a></li>
+			        <li><a href="#"><span class="glyphicon glyphicon-alert"></span><span class="text1" > notifcs</span> <span class="badge">5</span></a></li>
+		         
+  </ul></nav>
+          
+    <div class="navbar navbar-default navbar-fixed-top">      
+        
+        <!--Include your brand here-->
+         <button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+       <a class="navbar-brand" href="#">
+        <img src="../assets/images/ideation_banner.png" height="40" align="top">
+        </a>
+         <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+            <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            <li class="dropdown mega-dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <span class="caret"></span></a>              
+                <ul class="dropdown-menu mega-dropdown-menu">
+                    
+                    <li class="col-sm-2">
+                        <ul>
+                            <li class="dropdown-header">Campaigns</li>
+                            <li><a href="#">Start Campaign</a></li>
+                            <li><a href="#">Active Campaigns</a></li>
+                            <li><a href="#">All Campaigns</a></li>
+                            <li><a href="#">Place Holder</a></li>
+                           
+                        </ul>
+                    </li>
+                    
+                </ul>               
+            </li>
+            <li class="dropdown mega-dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ideation <span class="caret"></span></a>                
+                <ul class="dropdown-menu mega-dropdown-menu">
+                    <li class="col-sm-2">
+                        <ul>
+                            <li class="dropdown-header">Features</li>
+                            <li><a href="#">Place Holder</a></li>
+                            <li><a href="#">Place Holder</a></li>
+                            <li><a href="#">Place Holder</a></li>
+                            <li><a href="#">Four Columns Grid</a></li>
+                          
+                        </ul>
+                    </li>
+                    
+                    <li class="col-sm-3">
+                       
+                    </li>
+                </ul>               
+            </li>
+            <li>
+                <a href="#">
+                    <span class="glyphicon glyphicon-envelope"></span> Messages 
+                    <span class="badge">24</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav">
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-envelope"></span> My Ideas 
+                <span class="badge">2</span>
+            </a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My account <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Password</a></li>
+            <li><a href="#">Place holder</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><span class="glyphicon glyphicon-trash"></span> Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.nav-collapse -->
+    
+    
+        <div class="navbar-header pull-right">
+          <a id="nav-expander" class="nav-expander fixed">
+            MENU &nbsp;
+          </a>
+        </div>
+    </div>
+<br>
+<br>
+<br>
+        </section>
+ <section class="body">
+  <div class="container">
+
+  
+
+  <div class="form-buttons">
+    
+    <a href="/campaign/add" class="btn btn-link" role="button">
+      <span class="glyphicon glyphicon-plus"></span> Add
+    </a>
+  </div>
+  <div class="form-action">List Items</div>
+  <div class="form-heading">List of Campaigns</div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Objective</th>
+          <th>Owner</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+	   
+        <tr>
+          <td>Campaign 1</td>
+          <td>Some thing nonsense</td>
+          <td>asdfdaf@s.com</td>
+          <td>2015-01-14</td>
+          <td>2015-01-31</td>
+          <td>
+            <a href="/campaign/4f055d5f-10a5-4776-a631-d282307c95d8/view" class="btn btn-default" role="button">
+              <span class="glyphicon glyphicon-eye-open"></span>
+            </a>
+            <a href="/campaign/4f055d5f-10a5-4776-a631-d282307c95d8/edit" class="btn btn-success" role="button">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            <a href="/campaign/4f055d5f-10a5-4776-a631-d282307c95d8/delete" class="btn btn-warning" role="button">
+              <span class="glyphicon glyphicon-trash"></span>
+            </a>
+          </td>
+        </tr>
+  	 
+        <tr>
+          <td>Campaign 2</td>
+          <td>alkdshjfa</td>
+          <td>af@sa.com</td>
+          <td>2015-01-15</td>
+          <td>2015-01-31</td>
+          <td>
+            <a href="/campaign/c1ec04f6-8d14-43b1-9141-08ee70739ca4/view" class="btn btn-default" role="button">
+              <span class="glyphicon glyphicon-eye-open"></span>
+            </a>
+            <a href="/campaign/c1ec04f6-8d14-43b1-9141-08ee70739ca4/edit" class="btn btn-success" role="button">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            <a href="/campaign/c1ec04f6-8d14-43b1-9141-08ee70739ca4/delete" class="btn btn-warning" role="button">
+              <span class="glyphicon glyphicon-trash"></span>
+            </a>
+          </td>
+        </tr>
+  	 
+      </tbody>  
+    </table>
+  </div>
+</section>
+
+        <section class="footer"><div class="navbar navbar-default navbar-bottom">
+    <div class="container">
+      <p class="navbar-text pull-left">© 2015 - All rights reserverd. Tool built and managed by CTO, India Team
+      	<br/>Running: Scala Play v2.4.2
+      </p>
+      
+      <a href="https://c3.csc.com/groups/nxt-gen-tech" class="navbar-btn btn-danger btn pull-right">
+      <span class="glyphicon glyphicon-star"></span>  Subscribe on C3</a>
+    </div>
+    
+    
+  </div></section>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../assets/javascripts/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="../assets/javascripts/jquery.navgoco.js"></script>
+    <script src="../assets/javascripts/main.js"></script>
+    
+    <script>
+    $(document).ready(function(){												
+       
+       //Navigation Menu Slider
+        $('#nav-expander').on('click',function(e){
+      		e.preventDefault();
+      		$('body').toggleClass('nav-expanded');
+      	});
+      	$('#nav-close').on('click',function(e){
+      		e.preventDefault();
+      		$('body').removeClass('nav-expanded');
+      	});
+      	
+      	
+      	// Initialize navgoco with default options
+        $(".main-menu").navgoco({
+            caret: '<span class="caret"></span>',
+            accordion: false,
+            openClass: 'open',
+            save: true,
+            cookie: {
+                name: 'navgoco',
+                expires: false,
+                path: '/'
+            },
+            slide: {
+                duration: 300,
+                easing: 'swing'
+            }
+        });
+  
+        	
+      });
+      </script>
+  
+    </body>
+</html>
