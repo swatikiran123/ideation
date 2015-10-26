@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('ideaModule', ['ngRoute', 'ngResource', 'ngTagsInput']);
+angular.module('ideaModule', ['ngRoute', 'ngResource', 'ngTagsInput', 'textAngular']);
