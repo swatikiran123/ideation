@@ -1,6 +1,9 @@
+
+
 <h1>{{ idea.title }}</h1>
 Desc: <textarea ng-model="idea.desc"></textarea><br><br>
-
+    <tags-input ng-model="tags">
+    </tags-input>
 <button ng-click="update()">update</button>
 <button ng-click="remove()">remove</button>
 <a href="/">Cancel</a>
