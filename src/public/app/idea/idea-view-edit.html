@@ -1,0 +1,18 @@
+
+
+<h1>{{ idea.title }}</h1>
+<tags-input ng-model="tags"></tags-input>
+
+<div class="row">
+  <div class="col-sm-12">
+      <div class="richtext" text-angular ng-model="idea.desc" name="demo-editor" ta-text-editor-class="border-around" ta-html-editor-class="border-around"></div>
+  </div>
+</div>
+
+<button ng-click="update()">update</button>
+<button ng-click="remove()">remove</button>
+<a href="/">Cancel</a>
+
+
+<br/>
+<textarea class="richtext" ng-model="idea.desc"></textarea>

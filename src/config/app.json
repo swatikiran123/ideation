@@ -1,0 +1,26 @@
+{
+    "default": {
+        "port": 3010,
+        "cache_assets": true,
+        "secret_key": "7EHDWHD9W9UW9FBFB949394BWYFG8WE78F"
+    },
+
+    "development": {
+        "db_uri": "mongodb://localhost/ideation_dev",
+        "cache_assets": false
+    },
+
+    "test": {
+        "port": 3001
+    },
+
+    "staging": {
+        "port": #{process.env.PORT},
+        "secret_key": "3F8RRJR30UHERGUH8UERHGIUERHG3987GH8"
+    },
+
+    "production": {
+        "port": #{process.env.PORT},
+        "secret_key": "3F8RRJR30UHERGUH8UERHGIUERHG3987GH8"
+    }
+}
