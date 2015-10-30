@@ -28,5 +28,10 @@ router.get('/user', function(req, res) {
   res.render('user', { title: 'Ideation Portal - User Management' });
 });
 
+/* GET user page. */
+router.get('/login', function(req, res) {
+  res.render('login', { title: 'Ideation Portal - Security' });
+});
+
 
 module.exports = router;
