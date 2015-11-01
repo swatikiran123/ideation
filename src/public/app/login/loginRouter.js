@@ -27,7 +27,7 @@ app.config(['$routeProvider', function ($routeProvider) {
   }]);
 
 app.run(function($rootScope, $location, loginService){
-    var restrictedRoutes = ['/home']; // list of routes need access
+    var restrictedRoutes = ['/home', '/dashboard']; // list of routes need access
     console.log('app run');
 
     $rootScope.$on('$routeChangeStart', function(){
