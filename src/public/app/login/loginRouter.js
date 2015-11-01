@@ -5,13 +5,21 @@ var app=angular.module('loginModule');
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/login', {
-		templateUrl: '/app/login/login.html',
-		controller: 'loginController'
+    		templateUrl: '/app/login/login.html',
+    		controller: 'loginController'
       })
 
-	.when('/home', {
-		templateUrl: '/app/login/home.html',
-		controller: 'homeController'
+    	.when('/home', {
+    		templateUrl: '/app/login/home.html',
+    		controller: 'homeController'
+      })
+
+      .when('/register', {
+        templateUrl: '/app/login/register.html'
+      })
+
+      .when('/forgotPassword', {
+        templateUrl: '/app/login/forgotPassword.html'
       })
 
       .otherwise({redirectTo: '/login'});
