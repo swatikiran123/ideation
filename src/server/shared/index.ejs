@@ -1,8 +1,8 @@
 </html><!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="ideation" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="ideation" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="ideation" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="ideation" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html lang="en" ng-app="ideation.main" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="ideation.main" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="ideation.main" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="ideation.main" class="no-js"> <!--<![endif]-->
 <head>
 
   <meta charset="utf-8">
@@ -44,7 +44,7 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#home">Home</a></li>
+          <li class="active"><a href="#/">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#faqs">FAQs</a></li>
@@ -90,8 +90,19 @@
 
 
   <!-- Augmented scripts :: Start -->
+  
   <script src="/app/bower_components/angular/angular.js"></script>
   <script src="/app/bower_components/angular-route/angular-route.js"></script>
+
+  <script src="/app/auth/homeModule.js"></script>
+  <script src="/app/auth/homeController.js"></script>
+
+  <script src="/app/auth/authModule.js"></script>
+  <script src="/app/auth/loginDirective.js"></script>
+  <script src="/app/auth/sessionService.js"></script>
+  <script src="/app/auth/loginService.js"></script>
+  <script src="/app/auth/loginController.js"></script>
+  <script src="/app/auth/loginRouter.js"></script>
   <script src="/app/main/mainModule.js"></script>
 
   <!-- Augmented scripts :: End -->

@@ -1,8 +1,11 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('ideation', [
-  'ngRoute'
+angular.module('ideation.main', [
+	'ngRoute'
+	, 'ideation.home'
+  	, 'ideation.auth'
+
   //'ideation.home',
   //'ideation.secure',
   //'ideation.version'
@@ -10,6 +13,7 @@ angular.module('ideation', [
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider
+
 	  .when('/about', {
 	    templateUrl: '/app/main/about.html'
 	  })
@@ -22,8 +26,17 @@ angular.module('ideation', [
 	  	templateUrl: '/app/main/faqs.html'
 	  })
 
-	  .otherwise({
+/*	  .when('/home',{
+	  	templateUrl: '/app/main/home.html'
+	  })*/
+
+  	  .when('/',{
+	  	templateUrl: '/app/main/home.html'
+	  })
+
+/*	  .otherwise({
 	  	redirectTo: '/'
 	  });
+*/	  
 }]);
 
