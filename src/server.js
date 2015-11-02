@@ -13,6 +13,7 @@ var todos = require('./server/todo/todoRouter');
 var campaignApi = require('./server/campaign/campaignRouter');
 var ideaApi = require('./server/idea/ideaRouter');
 var userApi = require('./server/user/userRouter');
+var loginApi = require('./server/user/loginRouter');
 
 global.config = require('konfig')()
 var mongoose = require('mongoose');
@@ -51,6 +52,11 @@ app.use('/todos', todos);
 app.use('/campaignApi', campaignApi);
 app.use('/ideaApi', ideaApi);
 app.use('/userApi', userApi);
+app.use('/loginApi', loginApi);
+
+var php = require("node-php"); 
+var path = require("path"); 
+app.use("/", php.cgi("app/data")); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
