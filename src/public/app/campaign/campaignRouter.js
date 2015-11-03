@@ -1,19 +1,24 @@
 'use strict';
 
-angular.module('campaignModule')
+angular.module('ideation.campaign')
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/campaign/list', {
         templateUrl: '/app/campaign/campaign-view-main.html',
         controller: 'campaignControllerMain'
       })
 
-      .when('/:id/show', {
+      .when('/campaign/add', {
+        templateUrl: '/app/campaign/campaign-view-add.html',
+        controller: 'campaignControllerMain'
+      })
+
+      .when('/campaign/:id/show', {
         templateUrl: '/app/campaign/campaign-view-show.html',
         controller: 'campaignControllerDetail'
       })
 
-      .when('/:id', {
+      .when('/campaign/:id/edit', {
         templateUrl: '/app/campaign/campaign-view-detail.html',
         controller: 'campaignControllerMain'
       });

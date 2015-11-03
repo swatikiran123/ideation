@@ -5,6 +5,7 @@ angular.module('ideation.main', [
 	'ngRoute', 'ui.bootstrap', 'ui.router', 'ngCookies'
   	, 'ideation.auth'
   	, 'ideation.dashboard'
+  	, 'ideation.campaign'
 
   //'ideation.home',
   //'ideation.secure',

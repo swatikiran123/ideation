@@ -40,7 +40,7 @@
 
 
 
-var campaignApp = angular.module('campaignModule')
+var campaignApp = angular.module('ideation.campaign')
 campaignApp.controller('campaignControllerMain', ['$scope', '$http', function($scope, $http) {
     console.log("campaignControllerMain:: invoked");
 
