@@ -12,7 +12,7 @@ angular.module('ideation.dashboard').config(['$stateProvider', '$urlRouterProvid
         // Application routes
         $stateProvider
             .state('index', {
-                url: '/',
+                url: '/dashboard',
                 templateUrl: '/app/dashboard/templates/dashboard.html'
             })
             .state('tables', {

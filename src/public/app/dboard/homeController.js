@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ideation.home')
+angular.module('ideation.dashboard')
 	.controller('homeController', ['$scope', 'loginService', function($scope, loginService){
 
 		$scope.page_title = "Home page";

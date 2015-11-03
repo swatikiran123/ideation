@@ -1,1 +1,1 @@
-angular.module('ideation.dashboard', ['ui.bootstrap', 'ui.router', 'ngCookies']);
+angular.module('ideation.dashboard', []);
