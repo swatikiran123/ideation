@@ -43,24 +43,7 @@
         <a class="navbar-brand" href="#">IDEATION</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#/">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#faqs">FAQs</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li class="dropdown-header">Nav header</li>
-              <li><a href="#">Separated link</a></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-        </ul>
+        <div ng-include="'/app/partial/menu.html'"></div>
       </div><!--/.nav-collapse -->
     </div>
   </nav>
@@ -93,9 +76,28 @@
   
   <script src="/app/bower_components/angular/angular.js"></script>
   <script src="/app/bower_components/angular-route/angular-route.js"></script>
+  <script type="text/javascript" src="/app/bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/app/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script type="text/javascript" src="/app/bower_components/angular-cookies/angular-cookies.min.js"></script>
+  <script type="text/javascript" src="/app/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
-  <script src="/app/auth/homeModule.js"></script>
-  <script src="/app/auth/homeController.js"></script>
+  <script type="text/javascript" src="/app/campaign/campaignModule.js"></script>
+  <script type="text/javascript" src="/app/campaign/campaignControllerMain.js"></script>
+  <script type="text/javascript" src="/app/campaign/campaignControllerDetail.js"></script>
+  <script type="text/javascript" src="/app/campaign/campaignFactory.js"></script>
+  <script type="text/javascript" src="/app/campaign/campaignRouter.js"></script>
+
+  <script type="text/javascript" src="/app/dboard/dashboardModule.js"></script>
+  <script type="text/javascript" src="/app/dboard/homeController.js"></script>  
+  <script type="text/javascript" src="/app/dboard/dashboardController.js"></script>
+  <script type="text/javascript" src="/app/dboard/dashboardRouter.js"></script>
+  <script type="text/javascript" src="/app/dboard/controllers/alertController.js"></script>
+
+  <script type="text/javascript" src="/app/dboard/directives/loading.js"></script>
+  <script type="text/javascript" src="/app/dboard/directives/widget.js"></script>
+  <script type="text/javascript" src="/app/dboard/directives/widget-body.js"></script>
+  <script type="text/javascript" src="/app/dboard/directives/widget-header.js"></script>
+  <script type="text/javascript" src="/app/dboard/directives/widget-footer.js"></script>
 
   <script src="/app/auth/authModule.js"></script>
   <script src="/app/auth/loginDirective.js"></script>
@@ -103,6 +105,7 @@
   <script src="/app/auth/loginService.js"></script>
   <script src="/app/auth/loginController.js"></script>
   <script src="/app/auth/loginRouter.js"></script>
+
   <script src="/app/main/mainModule.js"></script>
 
   <!-- Augmented scripts :: End -->

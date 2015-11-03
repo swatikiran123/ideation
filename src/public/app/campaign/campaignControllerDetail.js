@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('campaignModule')
+angular.module('ideation.campaign')
   .controller('campaignControllerDetail', ['$scope', '$routeParams', 'campaignBinder', '$location', function ($scope, $routeParams, campaignBinder, $location) {
     $scope.campaign = campaignBinder.get({id: $routeParams.id });
 

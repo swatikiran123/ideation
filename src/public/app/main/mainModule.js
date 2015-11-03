@@ -2,9 +2,10 @@
 
 // Declare app level module which depends on views, and components
 angular.module('ideation.main', [
-	'ngRoute'
-	, 'ideation.home'
+	'ngRoute', 'ui.bootstrap', 'ui.router', 'ngCookies'
   	, 'ideation.auth'
+  	, 'ideation.dashboard'
+  	, 'ideation.campaign'
 
   //'ideation.home',
   //'ideation.secure',
