@@ -1,3 +1,29 @@
+<style>
+.page-header{
+  font: normal normal bold 20px/normal Verdana, Geneva, sans-serif;
+  color: rgba(96,93,93,0.9);
+  text-indent: 10px;
+}
+.data-grid{
+    font: normal normal bold 8px/normal Verdana, Geneva, sans-serif;
+}
+
+.data-grid-header{
+  border: none;
+  font: normal normal bold 12px/normal Verdana, Geneva, sans-serif;
+  color: rgba(96,93,93,0.9);
+  text-indent: 10px;
+}
+
+.data-grid-data{
+  border: none;
+  font: normal normal 12px/normal Verdana, Geneva, sans-serif;
+  color: rgba(96,93,93,0.9);
+  text-indent: 10px;
+}
+
+</style>
+
 <div class="container" ng-controller="campaignControllerMain">
 
 <!--Search: <input type="text" ng-model="search.title">
@@ -63,123 +89,49 @@
 New campaign <input type="text" ng-model="newCampaign"><button ng-click="save()">Create</button>-->
 
 <div class="container">
-  <h2>Basic Table</h2>
-  <div class="input-group"> <span class="input-group-addon">Search</span>
-
-    <input id="filter" type="text" class="form-control" placeholder="Type here...">
+  <div class="page-header">List of campaigns</div>
+  <div class="input-group"> 
+    <span >
+      <a href="/#/campaign/add"><i class="fa fa-plus"></i>&nbsp;Add Campaign</a>
+      </span>
     
+    <input type="text" ng-model="search.title">
+    <span class="input-group-addon">Search</span>
   </div>    
-  <div class="table-responsive">          
+
+  <div class="table-responsive data-grid">          
    
-  <table id="usertable" class="table boldtable table-responsive table-bordered table-hover" >
-    <thead>
-      <tr style="background-color: #D1E1E1;">
+  <table class="table boldtable table-responsive table-bordered table-hover" >
+    <thead class="data-grid-header">
+      <tr>
         <th><span class="glyphicon glyphicon-list-alt"></span> Title</th>
         <th><span class="glyphicon glyphicon-calendar"></span> Start Date</th>
         <th><span class="glyphicon glyphicon-calendar"></span> End Date</th>
         <th><span class="glyphicon glyphicon-user"></span> Sponsor</th>
         <th><span class="glyphicon glyphicon-eye-open"></span> Respondents</th>
         <th><span class="glyphicon glyphicon-info-sign"></span> Ideas</th>
+        <th>&nbsp;</th>
       </tr>
     </thead>
-    <tbody class="searchable">
-      <tr>
+    <tbody class="data-grid-data">
+      <tr ng-repeat="campaign in campaignList | filter: search">
           
-        <td><i class="fa fa-check"></i>AT&T</td>
-        <td>4/11/2015</td>
-        <td>6/11/2015</td>
-        <td>CSC</td>
-        <td>Res1</td>
-        <td>Idea1</td>
-    <tr>
-       <td colspan="6">
-       AT&T Description
-     <p>hii this descriptionnnnnnnn</p>
-     </td>
-      </tr> 
-      </tr>
-     
-      
-      <tr>
-        <td>Zurich</td>
-        <td>af4/11/2015</td>
-        <td>6afa/11/2015</td>
-        <td>CafSC</td>
-        <td>Rafes1</td>
-        <td>fa</td>
-        <tr>
-       <td colspan="6">
-       Zurich Description
-     <p>hii asdthis descriptionnnnnnnn</p>
-     </td>
-      </tr>
-      </tr>
-      
-      
-      <tr>
-        <td>Title3</td>
-        <td>af4/11/2015</td>
-        <td>6afa/11/2015</td>
-        <td>CafSC</td>
-        <td>Rafes1</td>
-        <td>fa</td>
-         <tr>
-       <td colspan="6">
-       Title3 Description
-     <p>hii asdthis descriptionnnnnnnn</p>
-     </td>
-        </tr>
-     
-      </tr>
-      
-        <tr>
-        <td>sg&T</td>
-        <td>af4/11/2015</td>
-        <td>6afa/11/2015</td>
-        <td>CafSC</td>
-        <td>Rafes1</td>
-        <td>fa</td>
-        <tr>
-       <td colspan="6">
-       sg&T Description
-     <p>hii asdthis descriptionnnnnnnn</p>
-     </td>
-      </tr>
+        <td>
+          <i class="fa fa-check"></i>&nbsp;
+          <a ng-show="!editing[$index]" href="#/campaign/{{campaign._id}}/show">{{campaign.title}}</a>
+        </td>
+        <td>{{campaign.startDate | date:'dd MMM yyyy'}}</td>
+        <td>{{campaign.endDate | date:'dd MMM yyyy'}}</td>
+        <td>{{campaign.sponsor}}</td>
+        <td>TBD</td>
+        <td><i class="fa fa-eye"></td>
+        <td>
+          <a href="#/campaign/{{campaign._id}}/show"><i class="fa fa-eye"></i></a>&nbsp;
+          <a href="#/campaign/{{campaign._id}}/edit"><i class="fa fa-edit"></i></a>&nbsp;
+          <a href="#/campaign/{{campaign._id}}/delete" ng-click="delete(campaign._id)"><i class="fa fa-trash"></i></a>
     
+        </td>
       </tr>
-     
-      <tr>
-        <td>abc</td>
-        <td>af4/11/2015</td>
-        <td>6afa/11/2015</td>
-        <td>CafSC</td>
-        <td>Rafes1</td>
-        <td>fa</td>
-        <tr>
-        <td colspan="6">
-        abc Description
-      <p>hii asdthis descriptionnnnnnnn</p>
-      </td>
-        </tr>
-        
-      </tr>
-       
-       <tr>
-        <td>sg&T</td>
-        <td>af4/11/2015</td>
-        <td>6afa/11/2015</td>
-        <td>CafSC</td>
-        <td>Rafes1</td>
-        <td>fa</td>
-         <tr>
-       <td colspan="6">
-       Description
-     <p>hii asdthis descriptionnnnnnnn</p>
-     </td>
-      </tr>
-        
-      </tr>
-      
      
     </tbody>
   </table>

@@ -19,7 +19,7 @@ angular.module('ideation.campaign')
       })
 
       .when('/campaign/:id/edit', {
-        templateUrl: '/app/campaign/campaign-view-detail.html',
+        templateUrl: '/app/campaign/campaign-view-add.html',
         controller: 'campaignControllerMain'
       });
     }

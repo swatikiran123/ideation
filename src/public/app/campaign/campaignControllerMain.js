@@ -64,7 +64,7 @@ $scope.create = function() {
 };
 
 $scope.delete = function(id) {
-  console.log(sub("Delete[Campaign::#{id}]"));
+  console.log(sub("Delete[Campaign::${id}]"));
   $http.delete('/campaignApi/' + id).success(function(response) {
     refresh();
   });
