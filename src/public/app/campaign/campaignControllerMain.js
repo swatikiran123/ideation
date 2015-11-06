@@ -46,7 +46,7 @@ campaignApp.controller('campaignControllerMain', ['$scope', '$http', function($s
 
 var refresh = function() {
   $http.get('/campaignApi').success(function(response) {
-    console.log("I got the data I requested");
+    console.log("Campaign refresh");
     $scope.campaignList = response;
     $scope.campaign = "";
   });
@@ -55,6 +55,7 @@ var refresh = function() {
 refresh();
 
 $scope.create = function() {
+  console.log("create a campaign");
   console.log($scope.campaign);
   $http.post('/campaignApi', $scope.campaign).success(function(response) {
     console.log(response);
