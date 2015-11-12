@@ -41,18 +41,54 @@
 
 
 var campaignApp = angular.module('ideation.campaign')
-campaignApp.controller('campaignControllerMain', ['$scope', '$http', function($scope, $http) {
+campaignApp.controller('campaignControllerMain', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
     console.log("campaignControllerMain:: invoked");
+
+var id = $routeParams.id;
+$scope.mode=(id==null? 'add': 'edit');
+console.log("Id:" + id + ":" + $scope.mode);
 
 var refresh = function() {
   $http.get('/campaignApi').success(function(response) {
     console.log("Campaign refresh");
     $scope.campaignList = response;
-    $scope.campaign = "";
+
+    switch($scope.mode)    {
+      case "add":
+        $scope.campaign = "";
+        console.log('add mode ready')
+        break;
+
+      case "edit":
+        $scope.campaign = $http.get('campaignApi/' + id).success(function(response){
+          $scope.campaign = response;
+
+          // reformat date fields to avoid type compability issues with <input type=date on ng-model
+          $scope.campaign.startDate = new Date($scope.campaign.startDate);
+          $scope.campaign.endDate = new Date($scope.campaign.endDate);
+        });
+        console.log('edit mode to be implemented');
+
+    }
+    
   });
 };
 
 refresh();
+
+$scope.save = function(){
+  switch($scope.mode)    {
+    case "add":
+      $scope.create();
+      console.log("create campaign");
+      break;
+
+    case "edit":
+      $scope.update();
+      console.log("update campaign");
+      break;
+  }
+}
 
 $scope.create = function() {
   console.log("create a campaign");
@@ -64,14 +100,14 @@ $scope.create = function() {
 };
 
 $scope.delete = function(id) {
-  console.log(sub("Delete[Campaign::${id}]"));
+  console.log("Delete[Campaign::${id}]");
   $http.delete('/campaignApi/' + id).success(function(response) {
     refresh();
   });
 };
 
 $scope.update = function(id) {
-  console.log(sub("Update[Campaign::#{id}]"));
+  console.log("Update[Campaign::${id}]");
   $http.get('/campaignApi/' + id).success(function(response) {
     $scope.campaign = response;
   });

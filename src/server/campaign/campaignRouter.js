@@ -33,6 +33,7 @@ router.get('/:id', function(req, res, next) {
   console.log("retrieving:: " + req.params.id);
   campaignModel.findById(req.params.id, function (err, post) {
     if (err) return next(err);
+    console.log(post);
     res.json(post);
   });
 });

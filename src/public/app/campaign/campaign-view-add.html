@@ -109,7 +109,7 @@
                     <div class="input-group">
                         <input type="text" name="title" id="title" 
                         placeholder="Campaign Title" class="form-title form-control" 
-                        ng-model="campaign.title" ng-minlength="10" ng-maxlength="75" required>
+                        ng-model="campaign.title" ng-minlength="1" ng-maxlength="75" required>
 
                           <div class="help-block" ng-messages="campaignForm.title.$error" ng-if="campaignForm.title.$touched">
                             <div ng-messages-include="/app/partial/messages.html"></div>
@@ -125,7 +125,7 @@
                     <div class="input-group">
                         <textarea type="text" name="objective" id="objective" 
                         placeholder="Campaign objective" class="form-title form-control" 
-                        ng-model="campaign.objective" ng-minlength="75" ng-maxlength="5000" ng-trin="true" required>
+                        ng-model="campaign.objective" ng-minlength="2" ng-maxlength="5000" ng-trin="true" required>
                         </textarea>
 
                         <div class="help-block" ng-messages="campaignForm.objective.$error" ng-if="campaignForm.objective.$touched">
@@ -192,7 +192,7 @@
               <label class="col-md-4 control-label"></label>
               <div class="col-md-4">
                 <button type="submit" class="btn btn-success" 
-                    ng-disabled="campaignForm.$invalid" ng-click="create()">Submit
+                    ng-disabled="campaignForm.$invalid" ng-click="save()">Submit
                 </button>
                 <button type="reset" class="btn btn-warning" ng-click="refresh()">Cancel </button>
               </div>
