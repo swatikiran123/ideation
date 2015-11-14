@@ -15,11 +15,13 @@ app.config(['$routeProvider', function ($routeProvider) {
       })
 
       .when('/register', {
-        templateUrl: '/app/auth/register.html'
+        templateUrl: '/app/auth/register.html',
+        controller: 'userController'
       })
 
       .when('/forgotPassword', {
-        templateUrl: '/app/auth/forgotPassword.html'
+        templateUrl: '/app/auth/forgotPassword.html',
+        controller: 'userController'
       })
 
       //.otherwise({redirectTo: '/login'});
