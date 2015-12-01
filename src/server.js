@@ -54,9 +54,7 @@ app.use('/ideaApi', ideaApi);
 app.use('/userApi', userApi);
 app.use('/loginApi', loginApi);
 
-var php = require("node-php"); 
 var path = require("path"); 
-app.use("/", php.cgi("app/data")); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
