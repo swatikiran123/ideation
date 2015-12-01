@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 /* POST /campaigns */
 router.post('/', function(req, res, next) {
   console.log("Campaign api post '/'");
-  console.log("retrieving:: " + req.params.id);
+  console.log("retrieving:: " + req.body);
   campaignModel.create(req.body, function (err, post) {
     console.log("saving:: " + post);
     if (err) return next(err);
@@ -33,6 +33,7 @@ router.get('/:id', function(req, res, next) {
   console.log("retrieving:: " + req.params.id);
   campaignModel.findById(req.params.id, function (err, post) {
     if (err) return next(err);
+    console.log(post);
     res.json(post);
   });
 });

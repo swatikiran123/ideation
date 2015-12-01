@@ -1,60 +1,202 @@
-<link href="/app/assets/styles/formElements.css" rel="stylesheet"/>
-<link href="/app/assets/styles/loginStyles.css" rel="stylesheet"/>
+  <script>
+
+/*  $(function() {
+    $( "#startDate" ).datepicker();
+    $( "#endDate" ).datepicker();
+  });*/
+
+  </script>
+
+<style>
+    
+.form-heading {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: 0 solid;
+  border-bottom: 4px solid #a2b3c4;
+  font: normal 20px/2 "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: #24486c;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: #e0edf9;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.25) ;
+}
+
+.control-label{
+  border: none;
+  font: normal normal bold 12px/normal Verdana, Geneva, sans-serif;
+  color: rgba(96,93,93,0.9);
+  text-indent: 10px;
+}
+
+.form-control {
+    font: normal 12px/normal Verdana, Geneva, sans-serif;
+    color: rgba(96,93,93,0.9);
+}
+
+.help-block{
+    font: normal 10px/normal Verdana, Geneva, sans-serif;
+    color: maroon;
+}
+
+</style>
 
 <!-- Top content -->
-<div class="top-content">
-    
+<!--<div class="top-content">
     <div class="inner-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2 text">
-                    <h1><strong>Ideation</strong> Campaign Form</h1>
-                    <div class="description">
-                        <p>
-                            Campaigns are the means of defining ideation events
-                        </p>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 text">
+                <h1><strong>Ideation</strong> Campaign Form</h1>
+                <div class="description">
+                    <p>
+                        Campaigns are the means of defining ideation events
+                    </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 form-box">
-                    <div class="form-top">
-                        <div class="form-top-left">
-                            <h3>Campaign</h3>
-                            <p>Enter campaign details:</p>
-                        </div>
-                        <div class="form-top-right">
-                            <i class="fa fa-lock"></i>
-                        </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 form-box">
+                <div class="form-top">
+                    <div class="form-top-left">
+                        <h3>Campaign</h3>
+                        <p>Enter campaign details:</p>
                     </div>
-                    <div class="form-bottom">
-                        <form role="form" action="" method="post" class="login-form">
-                            <div class="form-group">
-                                <label class="sr-only" for="form-title">Title</label>
-                                <input type="text" name="form-title" placeholder="Title..." class="form-title form-control" id="form-title" ng-model="campaign.title">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="form-title">Description</label>
-                                <textarea type="text" name="form-desc" placeholder="Description..." class="form-desc form-control" id="form-desc" ng-model="campaign.desc"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="form-startDate">Start Date</label>
-                                <input type="text" name="form-startDate" placeholder="Start Date..." class="form-startDate form-control" id="form-startDate" ng-model="campaign.startDate">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="form-endDate">End Date</label>
-                                <input type="text" name="form-endDate" placeholder="End Date..." class="form-endDate form-control" id="form-endDate" ng-model="campaign.endDate">
-                            </div>                            
-                            <div class="form-group">
-                                <label class="sr-only" for="form-sponsor">Sponsor</label>
-                                <input type="text" name="form-sponsor" placeholder="Sponsor..." class="form-sponsor form-control" id="form-sponsor" ng-model="campaign.sponsor">
-                            </div>
-                            <button type="submit" class="btn" ng-click="login(user)">Save!</button>
-                        </form>
+                    <div class="form-top-right">
+                        <i class="fa fa-lock"></i>
                     </div>
+                </div>
+                <div class="form-bottom">
+                    <form role="form" action="" method="post" class="login-form">
+                        <div class="form-group">
+                            <label class="sr-only" for="form-title">Title</label>
+                            <input type="text" name="form-title" placeholder="Title..." class="form-title form-control" id="form-title" ng-model="campaign.title">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-title">Description</label>
+                            <textarea type="text" name="form-desc" placeholder="Description..." class="form-desc form-control" id="form-desc" ng-model="campaign.desc"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-startDate">Start Date</label>
+                            <input type="text" name="form-startDate" placeholder="Start Date..." class="form-startDate form-control" id="form-startDate" ng-model="campaign.startDate">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-endDate">End Date</label>
+                            <input type="text" name="form-endDate" placeholder="End Date..." class="form-endDate form-control" id="form-endDate" ng-model="campaign.endDate">
+                        </div>                            
+                        <div class="form-group">
+                            <label class="sr-only" for="form-sponsor">Sponsor</label>
+                            <input type="text" name="form-sponsor" placeholder="Sponsor..." class="form-sponsor form-control" id="form-sponsor" ng-model="campaign.sponsor">
+                        </div>
+                        <button type="submit" class="btn" ng-click="login(user)">Save!</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    
-</div>
+</div> -->
+
+<div class="form-heading">Add new campaign</div>
+    <div class="container data-form">
+
+        <form class="form-horizontal" id="campaignForm" name="campaignForm" novalidate>
+
+            <!-- Campaign title input-->
+            <div class="form-group" ng-class="{ 'has-error': campaignForm.title.$touched && campaignForm.title.$invalid }">
+                <label class="col-md-4 control-label">Campaign Title</label>  
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input type="text" name="title" id="title" 
+                        placeholder="Campaign Title" class="form-title form-control" 
+                        ng-model="campaign.title" ng-minlength="1" ng-maxlength="75" required>
+
+                          <div class="help-block" ng-messages="campaignForm.title.$error" ng-if="campaignForm.title.$touched">
+                            <div ng-messages-include="/app/partial/messages.html"></div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+             
+            <!-- Campaign description input-->
+            <div class="form-group" ng-class="{ 'has-error': campaignForm.objective.$touched && campaignForm.objective.$invalid }">
+                <label class="col-md-4 control-label">High level objective</label>  
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <textarea type="text" name="objective" id="objective" 
+                        placeholder="Campaign objective" class="form-title form-control" 
+                        ng-model="campaign.objective" ng-minlength="2" ng-maxlength="5000" ng-trin="true" required>
+                        </textarea>
+
+                        <div class="help-block" ng-messages="campaignForm.objective.$error" ng-if="campaignForm.objective.$touched">
+                            <div ng-messages-include="/app/partial/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campaign description input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label">Campaign planned schedule</label>  
+                <div class="col-md-4">
+                    <div class="input-group form-horizontal">
+                      <div class="input-prepend">
+                        <span class="add-on">Start</span>
+                        <input type="date" name="startDate" id="startDate" 
+                                            placeholder="Campaign Title"
+                                            ng-model="campaign.startDate" required>
+                      </div>
+                      <div class="input-append">
+                        <span class="add-on">End</span>
+                        <input type="date" name="endDate" id="endDate" 
+                                            placeholder="Campaign Title"
+                                            ng-model="campaign.endDate" required>
+                      </div>
+
+                </div>
+            </div>
+            </div>
+
+            <!-- Campaign sponsor input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label">Sponsor</label>  
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <select name="sponsor" id="sponsor" ng-model="campaign.sponsor" required>
+                          <option value="">---Please select---</option>
+                          <option value="svema">Sankar Vema</option> 
+                          <option value="mnimmagari">Madhumitha Nimmagari</option>
+                          <option value="merasani">Moulika Erasani</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campaign description input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label">Business Unit</label>  
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <select name="businessUnit" id="businessUnit" ng-model="campaign.businessUnit" required>
+                          <option value="">---Please select---</option>
+                          <option value="CTO">CTO</option> 
+                          <option value="HR">Human Resources</option>
+                          <option value="India Operations">India Operations</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+              <label class="col-md-4 control-label"></label>
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-success" 
+                    ng-disabled="campaignForm.$invalid" ng-click="save()">Submit
+                </button>
+                <button type="reset" class="btn btn-warning" ng-click="refresh()">Cancel </button>
+              </div>
+            </div>
+
+        </form>
+    </div>

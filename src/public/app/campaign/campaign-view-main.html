@@ -1,6 +1,32 @@
+<style>
+.page-header{
+  font: normal normal bold 20px/normal Verdana, Geneva, sans-serif;
+  color: rgba(96,93,93,0.9);
+  text-indent: 10px;
+}
+.data-grid{
+    font: normal normal bold 8px/normal Verdana, Geneva, sans-serif;
+}
+
+.data-grid-header{
+  border: none;
+  font: normal normal bold 12px/normal Verdana, Geneva, sans-serif;
+  color: rgba(96,93,93,0.9);
+  text-indent: 10px;
+}
+
+.data-grid-data{
+  border: none;
+  font: normal normal 12px/normal Verdana, Geneva, sans-serif;
+  color: rgba(96,93,93,0.9);
+  text-indent: 10px;
+}
+
+</style>
+
 <div class="container" ng-controller="campaignControllerMain">
 
-Search: <input type="text" ng-model="search.title">
+<!--Search: <input type="text" ng-model="search.title">
 
 <table class="table">
   <thead>
@@ -60,4 +86,56 @@ Search: <input type="text" ng-model="search.title">
     <button ng-show="editing[$index]" ng-click="cancel($index)">cancel</button>
   </li>
 </ul>
-New campaign <input type="text" ng-model="newCampaign"><button ng-click="save()">Create</button>
+New campaign <input type="text" ng-model="newCampaign"><button ng-click="save()">Create</button>-->
+
+<div class="container">
+  <div class="page-header">List of campaigns</div>
+  <div class="input-group"> 
+    <span >
+      <a href="/#/campaign/add"><i class="fa fa-plus"></i>&nbsp;Add Campaign</a>
+      </span>
+    
+    <input type="text" ng-model="search.title">
+    <span class="input-group-addon">Search</span>
+  </div>    
+
+  <div class="table-responsive data-grid">          
+   
+  <table class="table boldtable table-responsive table-bordered table-hover" >
+    <thead class="data-grid-header">
+      <tr>
+        <th><span class="glyphicon glyphicon-list-alt"></span> Title</th>
+        <th><span class="glyphicon glyphicon-calendar"></span> Start Date</th>
+        <th><span class="glyphicon glyphicon-calendar"></span> End Date</th>
+        <th><span class="glyphicon glyphicon-user"></span> Sponsor</th>
+        <th><span class="glyphicon glyphicon-eye-open"></span> Respondents</th>
+        <th><span class="glyphicon glyphicon-info-sign"></span> Ideas</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody class="data-grid-data">
+      <tr ng-repeat="campaign in campaignList | filter: search">
+          
+        <td>
+          <i class="fa fa-check"></i>&nbsp;
+          <a ng-show="!editing[$index]" href="#/campaign/{{campaign._id}}/show">{{campaign.title}}</a>
+        </td>
+        <td>{{campaign.startDate | date:'dd MMM yyyy'}}</td>
+        <td>{{campaign.endDate | date:'dd MMM yyyy'}}</td>
+        <td>{{campaign.sponsor}}</td>
+        <td>TBD</td>
+        <td><i class="fa fa-eye"></td>
+        <td>
+          <a href="#/campaign/{{campaign._id}}/show"><i class="fa fa-eye"></i></a>&nbsp;
+          <a href="#/campaign/{{campaign._id}}/edit"><i class="fa fa-edit"></i></a>&nbsp;
+          <a href="#/campaign/{{campaign._id}}/delete" ng-click="delete(campaign._id)"><i class="fa fa-trash"></i></a>
+    
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+  </div>
+  </div>
+</div>
+
