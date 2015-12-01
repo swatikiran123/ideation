@@ -41,8 +41,22 @@
 
 
 var campaignApp = angular.module('ideation.campaign')
-campaignApp.controller('campaignControllerMain', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+campaignApp.controller('campaignControllerMain', ['$scope', '$http', '$routeParams', 'uiGridConstants', 
+  function($scope, $http, $routeParams, uiGridConstants) {
     console.log("campaignControllerMain:: invoked");
+
+      $scope.gridOptions = {
+    enableFiltering: true,
+    onRegisterApi: function(gridApi){
+      $scope.gridApi = gridApi;
+    },
+    columnDefs: [
+      // default
+      { field: 'title', headerCellClass: $scope.highlightFilteredHeader },
+      { field: 'objective', headerCellClass: $scope.highlightFilteredHeader }
+      // pre-populated search field
+    ]
+  };
 
 var id = $routeParams.id;
 $scope.mode=(id==null? 'add': 'edit');
@@ -52,6 +66,7 @@ var refresh = function() {
   $http.get('/campaignApi').success(function(response) {
     console.log("Campaign refresh");
     $scope.campaignList = response;
+    $scope.gridOptions.data = response;
 
     switch($scope.mode)    {
       case "add":

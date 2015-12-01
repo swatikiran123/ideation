@@ -1,3 +1,5 @@
+
+
 <style>
 .page-header{
   font: normal normal bold 20px/normal Verdana, Geneva, sans-serif;
@@ -21,6 +23,15 @@
   color: rgba(96,93,93,0.9);
   text-indent: 10px;
 }
+
+    .grid {
+      width: 650px;
+      height: 400px;
+    }
+     
+    .header-filtered {
+      color: blue;
+    }
 
 </style>
 
@@ -136,6 +147,10 @@ New campaign <input type="text" ng-model="newCampaign"><button ng-click="save()"
     </tbody>
   </table>
   </div>
-  </div>
-</div>
+
+  Something else 
+
+  <div id="grid1" ui-grid="gridOptions" class="grid"></div>
+  </div> // end of container
+
 

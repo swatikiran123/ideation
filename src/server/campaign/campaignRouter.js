@@ -5,7 +5,6 @@ var router = express.Router();
 //var mongojs = require('mongojs');
 //var db = mongojs('campaignModel', ['campaigns']);
 var campaignModel = require('./campaignSchema');
-
 /* GET /campaigns listing. */
 router.get('/', function(req, res, next) {
   console.log("Campaign api get '/'");
