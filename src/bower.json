@@ -34,6 +34,9 @@
     "jquery-ui": "latest",
     "bootstrap": "latest",
     "angular-bootstrap": "latest",
-    "rdash-ui": "latest"
+    "rdash-ui": "latest",
+    "angular-touch":"latest",
+    "angular-animate":"latest",
+    "angular-ui-grid":"latest"
   }
 }
