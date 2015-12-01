@@ -7,7 +7,7 @@ angular.module('ideation.main', [
   	, 'ideation.auth'
   	, 'ideation.dashboard'
   	, 'ideation.campaign'
-  	, 'ideation.idea'
+  	//, 'ideation.idea'
 
   //'ideation.home',
   //'ideation.secure',
