@@ -1,0 +1,155 @@
+
+<link href="/app/assets/styles/view.css" rel="stylesheet"/>
+<div class="container" ng-controller="campaignControllerMain">
+
+<div class="pull-right">  <a href="/">Back</a></div></div>
+  <div class="page-header"><h1 class="maintitle">{{campaign.title}}<h1></div>
+
+
+
+<div class="row">
+    <div class="col-sm-6"> Schedule: {{campaign.startDate | date}} -
+     {{campaign.endDate | date}}</div><div class="pull-right">
+    
+    
+      
+      <p>Share:
+  <a href="#"><span class="glyphicon glyphicon-globe"></span></a>
+Follow: <a href="#"><span class="glyphicon glyphicon-thumbs-up"></span></p></div>
+
+       <div class="row">
+       <div class="col-sm-12">
+       <br>
+       <br>
+ <P>{{campaign.objective}}</P></div></div>
+
+<div class="container text-centre">
+
+       <div class="row">
+    <div class="col-sm-8">
+    <div class="panel panel-default">
+            <div class="panel-body">
+      
+     
+      
+<img src="/app/assets/img/sc.png" height="130px" width="620px">
+
+   
+   
+    
+    </div></div>
+      <div class="col-sm-4">
+    <div class="panel panel-default">
+            <div class="panel-body"><p>
+       <span class=" glyphicon glyphicon-arrow-up" style="color:green"></span><h2>18%</h2></p>
+      
+           Customer
+           <br> Retention
+    </div></div></div>
+    
+    <div class="col-sm-4">
+    <div class="panel panel-default">
+            <div class="panel-body">
+     <p>
+       <span class=" glyphicon glyphicon-arrow-down" style="color:green"></span><h2>85%</h2></p>
+      
+           Loyality
+           <br> Program Efficiency</div></div></div>
+       <div class="col-sm-4">
+    <div class="panel panel-default">
+            <div class="panel-body">
+     <p>
+       <span class=" glyphicon glyphicon-arrow-down" style="color:green"></span><h2>86%</h2></p>
+      
+           
+           <br> out of stock issues
+      </div></div></div></div>
+    
+    <div class="col-sm-4">
+    <div class="panel panel-default">
+            <div class="panel-body">
+      <h3>Team</h3>
+      Sponsor: {{campaign.sponsor}}
+      <br>
+      Business Unit:
+      {{campaign.businessUnit}}
+  <br>Madhumitha 
+  <br>Moulika
+  <br>Swathi
+  <br>Aman
+  <br>Kranthi
+      
+      </div></div>
+      </div>
+ 
+   
+     </div>
+
+ 
+ <!--table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>ideaname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>microservices</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>pattern</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>pandy</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table--><div class="subtitle">
+   Submitted Ideas</div>
+  <div class="table-responsive">
+   
+ <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>S.no</th>
+        <th>ideaname</th>
+        <th>submitted by</th>
+        <th>submitted Date</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>moulika</td>
+        <td>respnsiveness</td>
+        <td>12-02-2015</td>
+      </tr>
+      <tr>
+         <td>2</td>   
+        <td>Madhu</td>
+        <td>devops</td>
+        <td>12-03-3015</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>swathi</td>
+        <td>angularjs</td>
+        <td>12-04-2015</td>
+      </tr>
+       <tr>
+        <td>4</td>
+        <td>aman</td>
+        <td>python</td>
+        <td>12-05-2015</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
