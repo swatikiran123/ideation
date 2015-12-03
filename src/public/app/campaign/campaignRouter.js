@@ -14,8 +14,12 @@ angular.module('ideation.campaign')
       })
 
       .when('/campaign/:id/show', {
-        templateUrl: '/app/campaign/campaign-view-show.html',
-        controller: 'campaignControllerDetail'
+        templateUrl: '/app/campaign/campaign-view3-show.html',
+        controller: 'campaignControllerMain'
+      })
+       .when('/campaign/view', {
+        templateUrl: '/app/campaign/campaign-view.html',
+        controller: 'campaignControllerMain'
       })
 
       .when('/campaign/:id/edit', {

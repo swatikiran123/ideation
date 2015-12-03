@@ -25,8 +25,8 @@
 }
 
     .grid {
-      width: 650px;
-      height: 400px;
+      width: 800px;
+      height: 60px;
     }
      
     .header-filtered {
@@ -148,9 +148,9 @@ New campaign <input type="text" ng-model="newCampaign"><button ng-click="save()"
   </table>
   </div>
 
-  Something else 
+  <button id='toggleFiltering' ng-click="toggleFiltering()" class="btn btn-success">Toggle Filtering</button>
 
   <div id="grid1" ui-grid="gridOptions" class="grid"></div>
-  </div> // end of container
+  </div>
 
 
