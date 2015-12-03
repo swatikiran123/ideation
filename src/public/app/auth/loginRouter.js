@@ -29,12 +29,12 @@ app.config(['$routeProvider', function ($routeProvider) {
   }]);
 
 app.run(function($rootScope, $location, loginService){
-    var restrictedRoutes = ['/home', '/dashboard']; // list of routes need access
+    var publicRoutes = ['/login', '/register', '/forgotPassword']; // list of public routes
     console.log('Event fired:: app run');
 
     $rootScope.$on('$routeChangeStart', function(){
       console.log('Event RouteChange->Start '  + "@[" + $location.path() + "] when loggedin is " + loginService.isLogged());
-      if(restrictedRoutes.indexOf($location.path()) !=-1 && !loginService.isLogged() ){
+      if(publicRoutes.indexOf($location.path()) ==-1 && !loginService.isLogged() ){
         console.log('access denied!!!');
         $location.path('/login');
       }
