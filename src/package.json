@@ -22,7 +22,8 @@
     "textangular": "1.4.6",
     "nodemailer": "latest",
     "email-templates": "latest",
-    "swig": "latest"
+    "swig": "latest",
+    "git-rev": "latest"
   },
   "devDependencies": {
     "grunt-concurrent": "^1.0.0",
