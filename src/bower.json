@@ -37,6 +37,7 @@
     "rdash-ui": "latest",
     "angular-touch":"latest",
     "angular-animate":"latest",
-    "angular-ui-grid":"latest"
+    "angular-ui-grid":"latest",
+    "angularjs-datepicker":"latest"
   }
 }
