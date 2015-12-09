@@ -18,13 +18,27 @@ var loginApi = require('./server/user/loginRouter');
 global.config = require('konfig')()
 var mongoose = require('mongoose');
 
+var git = require('git-rev');
+git.log(function (array) {
+  console.log('log', array)
+});
+
+git.short(function (str) {
+  console.log('short', str)
+});
+
 //var databaseURI = 'mongodb://localhost/ideation_' + [process.env.NODE_ENV || "dev"];
 var databaseURI = global.config.app.db_uri;
 
 mongoose.connect(databaseURI, function(err) {
   if (err) {
-    console.error(databaseURI + ' connection error. ', err);
-    throw(err);
+    console.error("Error connecting to the database...");
+    console.error("Please ensure DB server is available at " + databaseURI);
+    console.error("   and that the security configuration is correct")
+    console.error("Error message: ", err);
+    console.error("Terminating application server");
+    //throw(err);
+    process.exit();
   } else /*if(process.env.NODE_ENV === 'development')*/{
     console.log(databaseURI + ' connected.');
   }
