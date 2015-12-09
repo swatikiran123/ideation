@@ -9,7 +9,7 @@ angular.module('ideation.campaign')
       })
 
       .when('/campaign/add', {
-        templateUrl: '/app/campaign/campaign-view-add.html',
+        templateUrl: '/app/campaign/campaign-add.html',
         controller: 'campaignControllerMain'
       })
 

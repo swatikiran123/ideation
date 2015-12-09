@@ -39,23 +39,32 @@
   }]);*/
 
 
+var campaignApp = angular.module('ideation.campaign', ['ngTouch','720kb.datepicker', 'ui.grid', 'ui.grid.pagination', 'ui.grid.expandable', 'ui.grid.selection', 'ui.grid.pinning']);
 
-var campaignApp = angular.module('ideation.campaign')
-campaignApp.controller('campaignControllerMain', ['$scope', '$http', '$routeParams', 'uiGridConstants', 
-  function($scope, $http, $routeParams, uiGridConstants) {
+campaignApp.controller('campaignControllerMain', ['$scope', '$http', '$routeParams', 'uiGridConstants', '$log',
+  function($scope, $http, $routeParams, uiGridConstants, $log) {
+
     console.log("campaignControllerMain:: invoked");
 
+
       $scope.gridOptions = {
-    enableFiltering: true,
     onRegisterApi: function(gridApi){
       $scope.gridApi = gridApi;
-    },
+      },
     columnDefs: [
       // default
       { field: 'title', headerCellClass: $scope.highlightFilteredHeader },
-      { field: 'objective', headerCellClass: $scope.highlightFilteredHeader }
+      { field: 'sponsor', headerCellClass: $scope.highlightFilteredHeader },
+      { field: 'objective', headerCellClass: $scope.highlightFilteredHeader },
+        { field: 'startDate', headerCellClass: $scope.highlightFilteredHeader },
+           { field: 'endDate', headerCellClass: $scope.highlightFilteredHeader }
       // pre-populated search field
-    ]
+    ],
+  };
+
+   $scope.toggleFiltering = function(){
+    $scope.gridOptions.enableFiltering = !$scope.gridOptions.enableFiltering;
+    $scope.gridApi.core.notifyDataChange( uiGridConstants.dataChange.COLUMN );
   };
 
 var id = $routeParams.id;
@@ -141,3 +150,34 @@ $scope.deselect = function() {
 }
 
 }]);﻿
+campaignApp.directive('uiDate', function() {
+    return {
+      require: '?ngModel',
+      link: function($scope, element, attrs, controller) {
+        var originalRender, updateModel, usersOnSelectHandler;
+        if ($scope.uiDate == null) $scope.uiDate = {};
+        if (controller != null) {
+          updateModel = function(value, picker) {
+            return $scope.$apply(function() {
+              return controller.$setViewValue(element.datepicker("getDate"));
+            });
+          };
+          if ($scope.uiDate.onSelect != null) {
+            usersOnSelectHandler = $scope.uiDate.onSelect;
+            $scope.uiDate.onSelect = function(value, picker) {
+              updateModel(value);
+              return usersOnSelectHandler(value, picker);
+            };
+          } else {
+            $scope.uiDate.onSelect = updateModel;
+          }
+          originalRender = controller.$render;
+          controller.$render = function() {
+            originalRender();
+            return element.datepicker("setDate", controller.$viewValue);
+          };
+        }
+        return element.datepicker($scope.uiDate);
+      }
+    };
+  });
