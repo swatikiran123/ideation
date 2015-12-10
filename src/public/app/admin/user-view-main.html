@@ -1,1 +1,70 @@
-User main page here
+<div class="container">
+
+<div>
+    Search
+    <input type="text" ng-model="search.$">
+    <button ng-click="hideFilter=!hideFilter">Filter</button>
+    <button ng-click="addRecord()">Add</button>
+</div>
+
+<table class="table boldtable table-responsive table-bordered table-hover"  width="100" >
+  <thead class="data-grid-header">
+    <!-- table header -->
+    <tr>
+      <th>
+        <a href="" ng-click="orderByField='handle'; reverseSort = !reverseSort">ShortId</a>
+      </th>
+      <th>
+        <a href="" ng-click="orderByField='firstName'; reverseSort = !reverseSort">First Name</a>
+      </th>
+      <th>
+        <a href="" ng-click="orderByField='lastName'; reverseSort = !reverseSort">Last Name</a>
+      </th>
+      <th>
+        <a href="" ng-click="orderByField='contactNo'; reverseSort = !reverseSort">Contact No</a>
+      </th>
+      <th>&nbsp;</th>
+    </tr>
+
+    <!-- table filter -->
+    <tr ng-hide="hideFilter">
+      <th><span ng-hide="hideFilter"><input type="text" ng-model="search.handle"></span></th>
+      <th><span ng-hide="hideFilter"><input type="text" ng-model="search.firstName"></span></th>
+      <th><span ng-hide="hideFilter"><input type="text" ng-model="search.lastName"></span></th>
+      <th><span ng-hide="hideFilter"><input type="text" ng-model="search.contactNo"></span></th>
+      <th><span ng-hide="hideFilter">&nbsp;</span></th>
+    </tr>      
+
+    <!-- table add new record template -->
+    <tr ng-hide="hideAddRow">
+      <td><span ng-hide="hideAddRow"><input type="text" ng-model="user.handle"></span></td>
+      <td><span ng-hide="hideAddRow"><input type="text" ng-model="user.firstname"></span></td>
+      <td><span ng-hide="hideAddRow"><input type="text" ng-model="user.lastname"></span></td>
+      <td><span ng-hide="hideAddRow"><input type="text" ng-model="user.contactNo"></span></td>
+      <td>
+        <span ng-hide="hideAddRow">
+<!--           <button class="btn btn-primary" ng-click="addUser()">Add</button> -->
+          <button class="btn btn-primary" ng-click="save()">Save</button>
+<button class="btn btn-info" ng-click="update()">Update</button>
+          <button class="btn btn-info" ng-click="deselect()">Clear</button>
+        </span>
+      </td>
+    </tr>
+  </thead>
+
+
+  <tbody class="data-grid-data">
+    <tr ng-repeat="user in userlist | filter: search |orderBy:orderByField:reverseSort">
+      <td>{{user.handle}}</td>
+      <td>{{user.firstname}}</td>
+      <td>{{user.lastname}}</td>
+      <td>{{user.contactNo}}</td>
+      <td>
+        <button class="btn btn-danger" ng-click="remove(user._id)">Remove</button>
+        <button class="btn btn-warning" ng-click="edit(user._id)">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</div> <!-- end of container -->
