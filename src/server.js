@@ -16,7 +16,7 @@ var userApi = require('./server/user/userRouter');
 var loginApi = require('./server/user/loginRouter');
 
 global.config = require('konfig')()
-var mongoose = require('mongoose');
+
 
 var git = require('git-rev');
 git.log(function (array) {

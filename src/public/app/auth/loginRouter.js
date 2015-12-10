@@ -36,7 +36,7 @@ app.run(function($rootScope, $location, loginService){
       console.log('Event RouteChange->Start '  + "@[" + $location.path() + "] when loggedin is " + loginService.isLogged());
       if(publicRoutes.indexOf($location.path()) ==-1 && !loginService.isLogged() ){
         console.log('access denied!!!');
-        $location.path('/login');
+        $location.path('login');
       }
     });
   });

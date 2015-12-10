@@ -15,10 +15,10 @@ router.get('/', function(req, res, next) {
 /* POST /userApi */
 router.post('/', function(req, res, next) {
   console.log('loginapi post method');
--    if(req.body.username == 'svema' && req.body.password == '1234')
--      res.send('1');
--    else
--      res.send();
+    if(req.body.username == 'svema' && req.body.password == '1234')
+      res.send('1');
+    else
+      res.send();
 
 }); // end of post '/' router
 

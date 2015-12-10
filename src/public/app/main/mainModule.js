@@ -3,7 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('ideation.main', [
 	'ngRoute', 'ui.bootstrap', 'ui.router', 'ngCookies', 'ngTagsInput', 'ngMessages',
-	'ngAnimate', 'ngTouch', 'ui.grid'
+	'ngAnimate', 'ngTouch', 'ui.grid', 'angular-growl'
 	, 'textAngular'
   	, 'ideation.auth'
   	, 'ideation.dashboard'

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ideation.auth')
-	.factory('loginService', function($http, $location, $window, sessionService) {
+	.factory('loginService', function($http, $location, $window, sessionService, growl) {
 		return{
 			login:function(user, scope){
 				console.log('login service invoked');
@@ -18,13 +18,15 @@ console.log("loginapi return");
 						scope.login_indicator="login successful";
 						sessionService.set("user", uid);
 						//$location.path('#/home');
-						//$window.location.href = "#/home";
+						$location.path('/');
+						//$window.location.href = "home";
 					}
 					else{
 						console.log('login failed');
 						scope.login_indicator="login failed";
-						//$location.path('/login');
-						//$window.location.href = "#/login";
+						$location.path('/login');
+						growl.warning("Login failed!!!");
+						//$window.location.href = "login";
 
 					} 
 				})
