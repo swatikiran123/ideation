@@ -1,38 +1,4 @@
-</html><!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="ideation.main" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="ideation.main" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="ideation.main" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="ideation.main" class="no-js"> <!--<![endif]-->
-<head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CSC Ideation Portal - Launch pad for ideas &amp; innovation">
-
-  <title>Ideation Portal</title>
-  
-  <script src="/app/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="/app/bower_components/jquery-ui/jquery-ui.min.js"></script>
-  <link rel="stylesheet" href="/app/bower_components/jquery-ui/themes/smoothness/jquery-ui.css">
-
-  <link href="/app/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <script src="/app/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  
-  <link rel="stylesheet" href="/app/bower_components/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/app/assets/styles/main.css">
-  
-      
-<link rel="stylesheet" href="/app/bower_components/angularjs-datepicker/src/css/angular-datepicker.css" rel="stylesheet">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-</head>
-<body>
+<%- include partials/header %>
 
   <!-- Fixed navbar :: Start-->
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -63,6 +29,9 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <!-- application notification area, required for angular-growl-2-->
+    <div growl></div>
+
     <div ng-view></div>
   </div>
   <!-- Page main content :: End -->
@@ -75,75 +44,4 @@
   </footer>
   <!-- Page footer :: End -->
 
-
-  <!-- Augmented scripts :: Start -->
-  
-  <script type="text/javascript" src="/app/bower_components/angular/angular.js"></script>
-  <script type="text/javascript" src="/app/bower_components/angular-route/angular-route.js"></script>
-  <script type="text/javascript" src="/app/bower_components/angular/angular.min.js"></script>
-  <script type="text/javascript" src="/app/bower_components/angular-animate/angular-animate.min.js"></script>
-  <script type="text/javascript" src="/app/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-  <script type="text/javascript" src="/app/bower_components/angular-messages/angular-messages.min.js"></script>
-  <script type="text/javascript" src="/app/bower_components/angular-cookies/angular-cookies.min.js"></script>
-  <script type="text/javascript" src="/app/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-
-      <script src="/app/bower_components/angular-touch/angular-touch.min.js"></script>
-    <script src="/app/bower_components/angular-animate/angular-animate.min.js"></script>
-     <script src="/app/bower_components/angular-ui-grid/ui-grid.min.js"></script>
-      <link rel="stylesheet" type="text/css" 
-      href="/app/bower_components/angular-ui-grid/ui-grid.min.css">
-
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.0.0/ng-tags-input.min.js"></script>
-      <link rel="stylesheet" type="text/css" 
-      href="https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.0.0/ng-tags-input.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" 
-      href="https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.0.0/ng-tags-input.min.css">
-
-          <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.4.6/textAngular-rangy.min.js"></script>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.4.6/textAngular-sanitize.min.js"></script>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.4.6/textAngular.min.js"></script>
-
-<!-- <script type="text/javascript" src="/app/idea/ideaModule.js"></script>
-  <script type="text/javascript" src="/app/idea/ideaRouter.js"></script>
-  <script type="text/javascript" src="/app/idea/ideaFactory.js"></script>
-  <script type="text/javascript" src="/app/idea/ideaControllerMain.js"></script>
-  <script type="text/javascript" src="/app/idea/ideaControllerDetail.js"></script>-->
-
-  <script type="text/javascript" src="/app/campaign/campaignModule.js"></script>
-  <script type="text/javascript" src="/app/campaign/campaignControllerMain.js"></script>
-  <script type="text/javascript" src="/app/campaign/campaignControllerDetail.js"></script>
-  <script type="text/javascript" src="/app/campaign/campaignFactory.js"></script>
-  <script type="text/javascript" src="/app/campaign/campaignRouter.js"></script>
-
-  <script type="text/javascript" src="/app/dboard/dashboardModule.js"></script>
-  <script type="text/javascript" src="/app/dboard/homeController.js"></script>  
-  <script type="text/javascript" src="/app/dboard/dashboardController.js"></script>
-  <script type="text/javascript" src="/app/dboard/dashboardRouter.js"></script>
-  <script type="text/javascript" src="/app/dboard/controllers/alertController.js"></script>
-
-  <script type="text/javascript" src="/app/dboard/directives/loading.js"></script>
-  <script type="text/javascript" src="/app/dboard/directives/widget.js"></script>
-  <script type="text/javascript" src="/app/dboard/directives/widget-body.js"></script>
-  <script type="text/javascript" src="/app/dboard/directives/widget-header.js"></script>
-  <script type="text/javascript" src="/app/dboard/directives/widget-footer.js"></script>
-
-  <script type="text/javascript" src="/app/admin/adminModule.js"></script>
-  <script type="text/javascript" src="/app/admin/userControllerMain.js"></script>
-  <script type="text/javascript" src="/app/admin/groupControllerMain.js"></script>
-  <script type="text/javascript" src="/app/admin/adminRouter.js"></script>
-
-  <script type="text/javascript" src="/app/auth/authModule.js"></script>
-  <script type="text/javascript" src="/app/auth/userController.js"></script>
-  <script type="text/javascript" src="/app/auth/loginDirective.js"></script>
-  <script type="text/javascript" src="/app/auth/sessionService.js"></script>
-  <script type="text/javascript" src="/app/auth/loginService.js"></script>
-  <script type="text/javascript" src="/app/auth/loginController.js"></script>
-  <script type="text/javascript" src="/app/auth/loginRouter.js"></script>
-
-  <script type="text/javascript" src="/app/main/mainModule.js"></script>
-<!--datepicker-->
-      <script type="text/javascript" src="/app/bower_components/angularjs-datepicker/src/js/angular-datepicker.js"></script>
-  <!-- Augmented scripts :: End -->
-</body>
-</html>
-
+<%- include partials/footer %>
