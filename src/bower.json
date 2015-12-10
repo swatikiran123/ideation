@@ -38,6 +38,7 @@
     "angular-touch":"latest",
     "angular-animate":"latest",
     "angular-ui-grid":"latest",
-    "angularjs-datepicker":"latest"
+    "angularjs-datepicker":"latest",
+    "angular-growl-v2":"latest"
   }
 }

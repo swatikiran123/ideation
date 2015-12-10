@@ -1,7 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
-/*
+
 var userSchema = new mongoose.Schema({
   handle		: { type: String, required: true, trim: true },
   firstname		: { type: String, required: true, trim: true },
@@ -18,14 +18,5 @@ var userSchema = new mongoose.Schema({
   //   Inactive: Deactivated due to certain reasons like not used for long time
   statusFlag	: { type: String, required: true } 					
 });
-*/
-
-var userSchema = new mongoose.Schema({
-  handle: String,
-  firstname: String,
-  lastname: String,
-  pwdHash: String
-});
-
 
 module.exports = mongoose.model('users', userSchema);

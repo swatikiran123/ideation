@@ -8,4 +8,8 @@ angular.module('ideation.auth')
 			loginService.login(user, $scope);
 		}
 
+		$scope.logout=function(){
+			console.log('logout initiated');
+			loginService.logout();
+		}
 	});
