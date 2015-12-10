@@ -1,0 +1,55 @@
+
+<table class="table boldtable table-responsive table-bordered table-hover" >
+    <thead class="data-grid-header">
+      <tr>
+        <th><span class="glyphicon glyphicon-list-alt"></span>
+          <a href="" ng-click="orderByField='title'; reverseSort = !reverseSort">Title</a>
+        <br> <div class="dropdown">
+         <span class="caret" data-toggle="dropdown"></span>
+  <ul class="dropdown-menu">
+    <li><a href="" ng-click="orderByField='title'"><span class="glyphicon glyphicon-sort-by-alphabet">Sort Ascending</a></li>
+    <li> <a href="" ng-click="reverseSort = !reverseSort"> <span class="glyphicon glyphicon-sort-by-alphabet-alt">Sort Descending</a></li>
+    <li><a href="" ng-click="orderByField='!title'"><span class="glyphicon glyphicon-remove-sign">Remove Sort</a></li>
+ </ul>
+</div>
+       </th>
+        <th><span class="glyphicon glyphicon-calendar"></span><a href="" ng-click="orderByField='startDate'; reverseSort = !reverseSort"> Start Date</th>
+        <th><span class="glyphicon glyphicon-calendar"></span><a href="" ng-click="orderByField='endDate'; reverseSort = !reverseSort"> End Date</th>
+        <th><span class="glyphicon glyphicon-user"></span><a href="" ng-click="orderByField='sponsor'; reverseSort = !reverseSort"> Sponsor</th>
+        <th><span class="glyphicon glyphicon-eye-open"></span> Respondents</th>
+        <th><span class="glyphicon glyphicon-info-sign"></span> Ideas</th>
+        <th>&nbsp;</th>
+      </tr>
+      <tr>
+        <th><input type="text" ng-model="search.title"></th>
+        <th><input type="text" ng-model="search.startDate"></th>
+        <th><input type="text" ng-model="search.endDate"></th>
+        <th><input type="text" ng-model="search.sponsor"></th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody class="data-grid-data">
+      <tr ng-repeat="campaign in campaignList | filter: search |orderBy:orderByField:reverseSort">
+          
+        <td>
+          <i class="fa fa-check"></i>&nbsp;
+          <a ng-show="!editing[$index]" href="#/campaign/{{campaign._id}}/show">{{campaign.title}}</a>
+        </td>
+        <td>{{campaign.startDate | date:'dd MMM yyyy'}}</td>
+        <td>{{campaign.endDate | date:'dd MMM yyyy'}}</td>
+        <td>{{campaign.sponsor}}</td>
+        <td>TBD</td>
+        <td><i class="fa fa-eye"></td>
+        <td>
+          <a href="#/campaign/{{campaign._id}}/show"><i class="fa fa-eye"></i></a>&nbsp;
+          <a href="#/campaign/{{campaign._id}}/edit"><i class="fa fa-edit"></i></a>&nbsp;
+          <a href="#/campaign/{{campaign._id}}/delete" ng-click="delete(campaign._id)"><i class="fa fa-trash"></i></a>
+    
+        </td>
+
+      </tr>
+     <tr>{{campaignList.length}}total</tr>
+    </tbody>
+
+

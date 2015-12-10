@@ -1,5 +1,3 @@
-
-
 <style>
 .page-header{
   font: normal normal bold 20px/normal Verdana, Geneva, sans-serif;
@@ -25,14 +23,23 @@
 }
 
     .grid {
-      width: 800px;
-      height: 60px;
+      width: 650px;
+      height: 50px;
     }
      
     .header-filtered {
       color: blue;
     }
 
+.button {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    font-size: 11px;
+    border: solid 1px red;
+    cursor: pointer;
+    text-align: center;
+}
 </style>
 
 <div class="container" ng-controller="campaignControllerMain">
@@ -107,50 +114,20 @@ New campaign <input type="text" ng-model="newCampaign"><button ng-click="save()"
       </span>
     
     <input type="text" ng-model="search.title">
-    <span class="input-group-addon">Search</span>
+    <!--<span class="input-group-addon">Search</span>-->
   </div>    
 
   <div class="table-responsive data-grid">          
-   
-  <table class="table boldtable table-responsive table-bordered table-hover" >
-    <thead class="data-grid-header">
-      <tr>
-        <th><span class="glyphicon glyphicon-list-alt"></span> Title</th>
-        <th><span class="glyphicon glyphicon-calendar"></span> Start Date</th>
-        <th><span class="glyphicon glyphicon-calendar"></span> End Date</th>
-        <th><span class="glyphicon glyphicon-user"></span> Sponsor</th>
-        <th><span class="glyphicon glyphicon-eye-open"></span> Respondents</th>
-        <th><span class="glyphicon glyphicon-info-sign"></span> Ideas</th>
-        <th>&nbsp;</th>
-      </tr>
-    </thead>
-    <tbody class="data-grid-data">
-      <tr ng-repeat="campaign in campaignList | filter: search">
-          
-        <td>
-          <i class="fa fa-check"></i>&nbsp;
-          <a ng-show="!editing[$index]" href="#/campaign/{{campaign._id}}/show">{{campaign.title}}</a>
-        </td>
-        <td>{{campaign.startDate | date:'dd MMM yyyy'}}</td>
-        <td>{{campaign.endDate | date:'dd MMM yyyy'}}</td>
-        <td>{{campaign.sponsor}}</td>
-        <td>TBD</td>
-        <td><i class="fa fa-eye"></td>
-        <td>
-          <a href="#/campaign/{{campaign._id}}/show"><i class="fa fa-eye"></i></a>&nbsp;
-          <a href="#/campaign/{{campaign._id}}/edit"><i class="fa fa-edit"></i></a>&nbsp;
-          <a href="#/campaign/{{campaign._id}}/delete" ng-click="delete(campaign._id)"><i class="fa fa-trash"></i></a>
-    
-        </td>
-      </tr>
-     
-    </tbody>
-  </table>
+   <div ng-include src="'app/campaign/partial/campaign-grid.html'"></div>
+
+   <button ng-hide="offset == 0" ng-click="previous()"><<</button>
+        <span ng-repeat="i in navButtons">
+            <span ng-class="$parent.offset == i * $parent.perPage && 'active'" class="button" ng-click="$parent.offset = (i * $parent.perPage)">{{i+1}}</span>
+        </span>
+        <button ng-hide="offset + perPage >= allData.length" ng-click="next()">>></button>
+
+  </div>
   </div>
 
-  <button id='toggleFiltering' ng-click="toggleFiltering()" class="btn btn-success">Toggle Filtering</button>
-
-  <div id="grid1" ui-grid="gridOptions" class="grid"></div>
-  </div>
 
 
