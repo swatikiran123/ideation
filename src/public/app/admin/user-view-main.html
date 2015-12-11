@@ -1,13 +1,34 @@
+<link rel="stylesheet" href="/app/admin/custom.css" />
+
 <div class="container">
 
-<div>
-    Search
-    <input type="text" ng-model="search.$">
-    <button ng-click="hideFilter=!hideFilter">Filter</button>
-    <button ng-click="addRecord()">Add</button>
+<div class="page-header">
+  User Management
+  <div class="sub-header">Manage application users
+  </div>
 </div>
 
-<table class="table boldtable table-responsive table-bordered table-hover"  width="100" >
+<div class="form-inline has-feedback filter-header">
+    <input type="text" class="form-control" placeholder="Search" />
+    <!-- <i class="glyphicon glyphicon-search form-control-feedback"></i> -->
+    <button class="btn btn-default btn-sm" ng-click="hideFilter=!hideFilter">Advanced Search</button>
+    <button class="btn btn-default btn-sm pull-right" ng-click="addRecord()"> Add New User</button>
+</div>
+
+<!-- <div class="filter-header">
+  <span class = "input-group input-group-sm">
+     <span class = "input-group-addon glyphicon glyphicon-search">Search </span>
+     <input type = "text" class ="" ng-model="search.$">
+     <button class="btn btn-default btn-sm" ng-click="hideFilter=!hideFilter">Advanced Search</button>
+  </span>
+
+Search
+    <input type="text" ng-model="search.$">
+    <a class="btn glyphicon glyphicon-search" ng-click="hideFilter=!hideFilter"></a>
+  
+</div> -->
+
+<table class="table table-striped table-condensed table-responsive table-hover">
   <thead class="data-grid-header">
     <!-- table header -->
     <tr>
@@ -20,7 +41,7 @@
       <th>
         <a href="" ng-click="orderByField='lastName'; reverseSort = !reverseSort">Last Name</a>
       </th>
-      <th>
+      <th class="hidden-xs">
         <a href="" ng-click="orderByField='contactNo'; reverseSort = !reverseSort">Contact No</a>
       </th>
       <th>&nbsp;</th>
@@ -31,7 +52,7 @@
       <th><span ng-hide="hideFilter"><input type="text" ng-model="search.handle"></span></th>
       <th><span ng-hide="hideFilter"><input type="text" ng-model="search.firstName"></span></th>
       <th><span ng-hide="hideFilter"><input type="text" ng-model="search.lastName"></span></th>
-      <th><span ng-hide="hideFilter"><input type="text" ng-model="search.contactNo"></span></th>
+      <th  class="hidden-xs"><span ng-hide="hideFilter"><input type="text" ng-model="search.contactNo"></span></th>
       <th><span ng-hide="hideFilter">&nbsp;</span></th>
     </tr>      
 
@@ -40,13 +61,11 @@
       <td><span ng-hide="hideAddRow"><input type="text" ng-model="user.handle"></span></td>
       <td><span ng-hide="hideAddRow"><input type="text" ng-model="user.firstname"></span></td>
       <td><span ng-hide="hideAddRow"><input type="text" ng-model="user.lastname"></span></td>
-      <td><span ng-hide="hideAddRow"><input type="text" ng-model="user.contactNo"></span></td>
+      <td  class="hidden-xs"><span ng-hide="hideAddRow"><input type="text" ng-model="user.contactNo"></span></td>
       <td>
         <span ng-hide="hideAddRow">
-<!--           <button class="btn btn-primary" ng-click="addUser()">Add</button> -->
-          <button class="btn btn-primary" ng-click="save()">Save</button>
-<button class="btn btn-info" ng-click="update()">Update</button>
-          <button class="btn btn-info" ng-click="deselect()">Clear</button>
+          <a class="table-btn" ng-click="save()"><span class="glyphicon glyphicon-ok"/></a>
+          <a class="table-btn" ng-click="deselect()"><span class="glyphicon glyphicon-remove"/></a>
         </span>
       </td>
     </tr>
@@ -58,10 +77,10 @@
       <td>{{user.handle}}</td>
       <td>{{user.firstname}}</td>
       <td>{{user.lastname}}</td>
-      <td>{{user.contactNo}}</td>
+      <td class="hidden-xs">{{user.contactNo}}</td>
       <td>
-        <button class="btn btn-danger" ng-click="remove(user._id)">Remove</button>
-        <button class="btn btn-warning" ng-click="edit(user._id)">Edit</button>
+        <a class="table-btn" ng-click="edit(user._id)"><span class="glyphicon glyphicon-edit" /></a>
+        <a class="table-btn" ng-click="remove(user._id)"><span class="glyphicon glyphicon-trash" /></a>
       </td>
     </tr>
   </tbody>
