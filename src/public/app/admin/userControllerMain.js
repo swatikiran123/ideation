@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ideation.admin')
-  .controller('userControllerMain', ['$scope', '$http', function ($scope, $http) {
+  .controller('userControllerMain', ['$scope', '$http', 'growl', function ($scope, $http, growl) {
 
     $scope.hideFilter = true;
     $scope.hideAddRow = true;
@@ -49,6 +49,7 @@ angular.module('ideation.admin')
       console.log(id);
       $http.delete('/userApi/' + id).success(function(response) {
         refresh();
+        growl.info(parse("User with %s deleted successfully", "slkfd"));
       });
     };
 
@@ -72,6 +73,7 @@ angular.module('ideation.admin')
 
     $scope.deselect = function() {
       $scope.user = "";
+      $scope.hideAddRow = true;
     }
 
   }]);
