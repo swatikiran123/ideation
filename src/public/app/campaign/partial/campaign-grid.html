@@ -1,5 +1,5 @@
-
-<table class="table boldtable table-responsive table-bordered table-hover"  ng-controller="campaignControllerMain">
+<div ng-controller="campaignControllerMain">
+<table class="table boldtable table-responsive table-bordered table-hover">
     <thead class="data-grid-header">
       <tr>
         <th><span class="glyphicon glyphicon-list-alt"></span>
@@ -50,6 +50,12 @@
 
       </tr>
      <tr>{{campaignList.length}}total</tr>
-    </tbody>
 
+     </tbody>
+     <button ng-hide="offset == 0" ng-click="previous()"><<</button>
+        <span ng-repeat="i in navButtons">
+            <span ng-class="$parent.offset == i * $parent.perPage && 'active'" class="button" ng-click="$parent.offset = (i * $parent.perPage)">{{i+1}}</span>
+        </span>
+        <button ng-hide="offset + perPage >= allData.length" ng-click="next()">>></button>
+</div>
 

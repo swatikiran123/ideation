@@ -44,6 +44,44 @@ var campaignApp = angular.module('ideation.campaign')
 campaignApp.controller('campaignControllerMain', ['$scope', '$http', function($scope, $http) {
     console.log("campaignControllerMain:: invoked");
 
+     $http.get('/campaignApi').success(function(response) {
+   
+    console.log("campaignControllerMain:: pagination start");
+    console.log("Campaign getting the data");
+   
+    $scope.allData = response;
+    $scope.perPage = 4;
+    //$scope.allData = refresh();
+    $scope.offset = 0;
+    $scope.navButtons = [];
+
+    $scope.buildNavButtons = function () {
+        for (var i = 0, len = ($scope.allData.length / $scope.perPage); i < len; i = i + 1) {
+            $scope.navButtons.push(i);
+        }
+    }
+
+    $scope.paginate = function() {
+        $scope.data = $scope.allData.slice($scope.offset, $scope.offset + $scope.perPage);
+    };
+
+    $scope.previous = function() {
+        $scope.offset = $scope.offset - $scope.perPage;
+    };
+
+    $scope.next = function() {
+        $scope.offset = $scope.offset + $scope.perPage;
+    };
+
+    $scope.$watch('offset', function() {
+        $scope.paginate();
+    });
+    
+    $scope.buildNavButtons();
+
+    console.log("campaignControllerMain:: pagination end");
+});
+
 var refresh = function() {
   $http.get('/campaignApi').success(function(response) {
     console.log("I got the data I requested");

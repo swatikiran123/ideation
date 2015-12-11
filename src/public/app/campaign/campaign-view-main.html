@@ -118,13 +118,10 @@ New campaign <input type="text" ng-model="newCampaign"><button ng-click="save()"
   </div>    
 
   <div class="table-responsive data-grid">          
+   
    <div ng-include src="'app/campaign/partial/campaign-grid.html'"></div>
-
-   <button ng-hide="offset == 0" ng-click="previous()"><<</button>
-        <span ng-repeat="i in navButtons">
-            <span ng-class="$parent.offset == i * $parent.perPage && 'active'" class="button" ng-click="$parent.offset = (i * $parent.perPage)">{{i+1}}</span>
-        </span>
-        <button ng-hide="offset + perPage >= allData.length" ng-click="next()">>></button>
+   <br><br>
+   <div ng-include src="'app/campaign/partial/campaign-ui-grid.html'"></div>
 
   </div>
   </div>
