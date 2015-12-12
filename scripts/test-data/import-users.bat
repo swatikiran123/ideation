@@ -1,0 +1,1 @@
+mongoimport --db ideation_dev --collection users --type csv --headerline --file users.csv
