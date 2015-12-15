@@ -23,6 +23,7 @@
 	<script type="text/javascript" src="/app/dashboard/dashboardController.js"></script>
   <script type="text/javascript" src="/app/dashboard/dashboardRouter.js"></script>
   <script type="text/javascript" src="/app/dashboard/controllers/alertController.js"></script>
+  <script type="text/javascript" src="/app/dashboard/controllers/campaignPanelController.js"></script>
 
   <script type="text/javascript" src="/app/dashboard/directives/loading.js"></script>
   <script type="text/javascript" src="/app/dashboard/directives/widget.js"></script>
@@ -35,9 +36,28 @@
 <body ng-controller="dashboardController">
   <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
 
-    <!-- Sidebar -->
+        <!-- Sidebar -->
     <div id="sidebar-wrapper">
-      <ul class="sidebar">
+      <div class="sidebar">
+        <span >
+          <span class="sidebar-main">
+            <a class="sidepanel-title" ng-click="toggleSidebar()">
+              Campaigns
+              <span class="glyphicon glyphicon-transfer pull-right"></span>
+            </a>
+          </span>
+<li class="sidebar-title"><span>NAVIGATION</span></li>
+<li class="sidebar-list">
+  <a href="#">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+</li>
+<li class="sidebar-list">
+  <a href="#/tables">Tables <span class="menu-icon fa fa-table"></span></a>
+</li>
+      </span>
+      </div>
+      <div ng-include="'/app/dashboard/templates/campaignPanel.html'"></div>
+
+<!--       <ul class="sidebar">
         <li class="sidebar-main">
           <a ng-click="toggleSidebar()">
             Campaigns
@@ -52,7 +72,7 @@
           <a href="#/tables">Tables <span class="menu-icon fa fa-table"></span></a>
         </li>
       </ul>
-      <!--<div ng-include="'/app/dashboard/templates/campaignPanel.html'"></div>-->
+       -->      <!--<div ng-include="'/app/dashboard/templates/campaignPanel.html'"></div>-->
       <div class="sidebar-footer">
         <div class="col-xs-4">
           <a href="#" target="_blank">
