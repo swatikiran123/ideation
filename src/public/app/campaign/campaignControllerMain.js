@@ -39,83 +39,60 @@
   }]);*/
 
 
-var campaignApp = angular.module('ideation.campaign', ['ngTouch','720kb.datepicker', 'ui.grid', 'ui.grid.pagination', 'ui.grid.expandable', 'ui.grid.selection', 'ui.grid.pinning']);
 
-campaignApp.controller('campaignControllerMain', ['$scope', '$http', '$routeParams', 'uiGridConstants', '$log',
-  function($scope, $http, $routeParams, uiGridConstants, $log) {
-
+var campaignApp = angular.module('ideation.campaign')
+campaignApp.controller('campaignControllerMain', ['$scope', '$http', function($scope, $http) {
     console.log("campaignControllerMain:: invoked");
 
+     $http.get('/campaignApi').success(function(response) {
+   
+    console.log("campaignControllerMain:: pagination start");
+    console.log("Campaign getting the data");
+   
+    $scope.allData = response;
+    $scope.perPage = 4;
+    //$scope.allData = refresh();
+    $scope.offset = 0;
+    $scope.navButtons = [];
 
-      $scope.gridOptions = {
-    onRegisterApi: function(gridApi){
-      $scope.gridApi = gridApi;
-      },
-    columnDefs: [
-      // default
-      { field: 'title', headerCellClass: $scope.highlightFilteredHeader },
-      { field: 'sponsor', headerCellClass: $scope.highlightFilteredHeader },
-      { field: 'objective', headerCellClass: $scope.highlightFilteredHeader },
-        { field: 'startDate', headerCellClass: $scope.highlightFilteredHeader },
-           { field: 'endDate', headerCellClass: $scope.highlightFilteredHeader }
-      // pre-populated search field
-    ],
-  };
+    $scope.buildNavButtons = function () {
+        for (var i = 0, len = ($scope.allData.length / $scope.perPage); i < len; i = i + 1) {
+            $scope.navButtons.push(i);
+        }
+    }
 
-   $scope.toggleFiltering = function(){
-    $scope.gridOptions.enableFiltering = !$scope.gridOptions.enableFiltering;
-    $scope.gridApi.core.notifyDataChange( uiGridConstants.dataChange.COLUMN );
-  };
+    $scope.paginate = function() {
+        $scope.data = $scope.allData.slice($scope.offset, $scope.offset + $scope.perPage);
+    };
 
-var id = $routeParams.id;
-$scope.mode=(id==null? 'add': 'edit');
-console.log("Id:" + id + ":" + $scope.mode);
+    $scope.previous = function() {
+        $scope.offset = $scope.offset - $scope.perPage;
+    };
+
+    $scope.next = function() {
+        $scope.offset = $scope.offset + $scope.perPage;
+    };
+
+    $scope.$watch('offset', function() {
+        $scope.paginate();
+    });
+    
+    $scope.buildNavButtons();
+
+    console.log("campaignControllerMain:: pagination end");
+});
 
 var refresh = function() {
   $http.get('/campaignApi').success(function(response) {
-    console.log("Campaign refresh");
+    console.log("I got the data I requested");
     $scope.campaignList = response;
-    $scope.gridOptions.data = response;
-
-    switch($scope.mode)    {
-      case "add":
-        $scope.campaign = "";
-        console.log('add mode ready')
-        break;
-
-      case "edit":
-        $scope.campaign = $http.get('campaignApi/' + id).success(function(response){
-          $scope.campaign = response;
-
-          // reformat date fields to avoid type compability issues with <input type=date on ng-model
-          $scope.campaign.startDate = new Date($scope.campaign.startDate);
-          $scope.campaign.endDate = new Date($scope.campaign.endDate);
-        });
-        console.log('edit mode to be implemented');
-
-    }
-    
+    $scope.campaign = "";
   });
 };
 
 refresh();
 
-$scope.save = function(){
-  switch($scope.mode)    {
-    case "add":
-      $scope.create();
-      console.log("create campaign");
-      break;
-
-    case "edit":
-      $scope.update();
-      console.log("update campaign");
-      break;
-  }
-}
-
 $scope.create = function() {
-  console.log("create a campaign");
   console.log($scope.campaign);
   $http.post('/campaignApi', $scope.campaign).success(function(response) {
     console.log(response);
@@ -124,14 +101,14 @@ $scope.create = function() {
 };
 
 $scope.delete = function(id) {
-  console.log("Delete[Campaign::${id}]");
+  console.log(sub("Delete[Campaign::#{id}]"));
   $http.delete('/campaignApi/' + id).success(function(response) {
     refresh();
   });
 };
 
 $scope.update = function(id) {
-  console.log("Update[Campaign::${id}]");
+  console.log(sub("Update[Campaign::#{id}]"));
   $http.get('/campaignApi/' + id).success(function(response) {
     $scope.campaign = response;
   });
@@ -150,34 +127,3 @@ $scope.deselect = function() {
 }
 
 }]);﻿
-campaignApp.directive('uiDate', function() {
-    return {
-      require: '?ngModel',
-      link: function($scope, element, attrs, controller) {
-        var originalRender, updateModel, usersOnSelectHandler;
-        if ($scope.uiDate == null) $scope.uiDate = {};
-        if (controller != null) {
-          updateModel = function(value, picker) {
-            return $scope.$apply(function() {
-              return controller.$setViewValue(element.datepicker("getDate"));
-            });
-          };
-          if ($scope.uiDate.onSelect != null) {
-            usersOnSelectHandler = $scope.uiDate.onSelect;
-            $scope.uiDate.onSelect = function(value, picker) {
-              updateModel(value);
-              return usersOnSelectHandler(value, picker);
-            };
-          } else {
-            $scope.uiDate.onSelect = updateModel;
-          }
-          originalRender = controller.$render;
-          controller.$render = function() {
-            originalRender();
-            return element.datepicker("setDate", controller.$viewValue);
-          };
-        }
-        return element.datepicker($scope.uiDate);
-      }
-    };
-  });
