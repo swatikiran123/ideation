@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ideation.dashboard')
+angular.module('ideation.campaign')
   .controller('campaignPanelController', ['$scope', '$http', function ($scope, $http) {
 
     var refresh = function() {
