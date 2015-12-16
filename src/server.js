@@ -52,6 +52,7 @@ app.use('/campaignApi', campaignApi);
 app.use('/ideaApi', ideaApi);
 app.use('/userApi', userApi);
 app.use('/loginApi', loginApi);
+//app.use('/dashboard', express.static('public/app/dashboard'));
 
 var path = require("path"); 
 

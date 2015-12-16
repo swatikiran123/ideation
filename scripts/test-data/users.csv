@@ -1,0 +1,12 @@
+firstname,lastname,handle,pwdHash,createdOn,statusFlag
+ideation,admin,admin,pwd1234,10-Dec-2015,Active
+Sankar,Vema,svema,open,10-Dec-2015,Active
+Durgaprasad,rasamsetti,drasamsetti,open,10-Dec-2015,Registered
+Madhumitha,Nimmagari,mnimmagari,open,10-Dec-2015,Active
+Subbu,Devarayan,dsubbu,open,10-Dec-2015,Registered
+Shyam,Motiyani,smotiyani,open,10-Dec-2015,Active
+Baskar,Venugopalan,bvenugopala2,open,10-Dec-2015,Registered
+Ganesh,Swaminathan,gswaminatha2,open,10-Dec-2015,Active
+Moulika,Erasani,merasani,open,10-Dec-2015,Active
+Swathi Kiran,Jammulamada,sjammulamada,open,10-Dec-2015,Active
+Aman,Gupta,agupta2,open,10-Dec-2015,Active

@@ -19,37 +19,48 @@
   <script type="text/javascript" src="/app/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <!-- endbuild -->
   <!-- Custom Scripts -->
+  <script type="text/javascript" src="/app/campaign/campaignModule.js"></script>
+<script type="text/javascript" src="/app/campaign/campaignControllerMain.js"></script>
+<script type="text/javascript" src="/app/campaign/campaignControllerDetail.js"></script>
+<script type="text/javascript" src="/app/campaign/campaignFactory.js"></script>
+<script type="text/javascript" src="/app/campaign/campaignRouter.js"></script>
+
   <script type="text/javascript" src="dashboardModule.js"></script>
 	<script type="text/javascript" src="dashboardController.js"></script>
   <script type="text/javascript" src="dashboardRouter.js"></script>
   <script type="text/javascript" src="controllers/alertController.js"></script>
+  <script type="text/javascript" src="controllers/campaignPanelController.js"></script>
 
   <script type="text/javascript" src="directives/loading.js"></script>
   <script type="text/javascript" src="directives/widget.js"></script>
   <script type="text/javascript" src="directives/widget-body.js"></script>
   <script type="text/javascript" src="directives/widget-header.js"></script>
   <script type="text/javascript" src="directives/widget-footer.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/app/assets/styles/custom.css">
 </head>
 <body ng-controller="dashboardController">
   <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
-      <ul class="sidebar">
-        <li class="sidebar-main">
-          <a ng-click="toggleSidebar()">
-            Campaigns
-            <span class="menu-icon glyphicon glyphicon-transfer"></span>
-          </a>
-        </li>
-        <li class="sidebar-title"><span>NAVIGATION</span></li>
-        <li class="sidebar-list">
-          <a href="#">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
-        </li>
-        <li class="sidebar-list">
-          <a href="#/tables">Tables <span class="menu-icon fa fa-table"></span></a>
-        </li>
-      </ul>
+      <div class="sidebar">
+        <span >
+          <span class="sidebar-main">
+            <a class="sidepanel-title" ng-click="toggleSidebar()">
+              Campaigns
+              <span class="glyphicon glyphicon-transfer pull-right"></span>
+            </a>
+          </span>
+<li class="sidebar-title"><span>NAVIGATION</span></li>
+<li class="sidebar-list">
+  <a href="#">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+</li>
+<li class="sidebar-list">
+  <a href="#/tables">Tables <span class="menu-icon fa fa-table"></span></a>
+</li>
+      </span>
+      </div>
       <div ng-include="'templates/campaignPanel.html'"></div>
       <div class="sidebar-footer">
         <div class="col-xs-4">
