@@ -33,6 +33,11 @@ router.get('/login', function(req, res) {
   res.render('login', { title: 'Ideation Portal - Security' });
 });*/
 
+router.get('/cvm', function(req, res) {
+  res.render('cvm', { title: 'Customer Visit Portal - Main Page' });
+});
+
+
 router.get('/dashboard', function(req, res) {
   res.render('dashboard', { title: 'Ideation Portal - Dashboard' });
 });
