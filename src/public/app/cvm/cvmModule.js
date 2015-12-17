@@ -1,0 +1,1 @@
+angular.module('cvm.main', ['ui.bootstrap', 'ui.router', 'ngCookies']);
