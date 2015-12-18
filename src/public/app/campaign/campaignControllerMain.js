@@ -2,7 +2,8 @@
 
 var campaignApp = angular.module('ideation.campaign');
 
-campaignApp.controller('campaignControllerMain', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+campaignApp.controller('campaignControllerMain', ['$scope', '$http', '$routeParams', '$location', 'growl', 
+  function($scope, $http, $routeParams, $location, growl) {
 
   var id = $routeParams.id;
   $scope.mode=(id==null? 'add': 'edit');
@@ -42,33 +43,85 @@ campaignApp.controller('campaignControllerMain', ['$scope', '$http', '$routePara
     $http.post('/campaignApi', $scope.campaign).success(function(response) {
       console.log(response);
       refresh();
+      growl.info(parse("Campaign with Title: %s added successfully", $scope.campaign.title));
     });
   };
 
-  $scope.delete = function(id) {
-    console.log(sub("Delete[Campaign::#{id}]"));
-    $http.delete('/campaignApi/' + id).success(function(response) {
+  $scope.delete = function(campaign) {
+    //console.log(sub("Delete[Campaign::#{id}]"));
+    var title = campaign.title;
+    $http.delete('/campaignApi/' + campaign._id).success(function(response) {
       refresh();
+      growl.info(parse("Campaign with Title: %s added successfully", title));
     });
   };
 
-  $scope.update = function(id) {
+/*  $scope.update = function(id) {
     console.log(sub("Update[Campaign::#{id}]"));
     $http.get('/campaignApi/' + id).success(function(response) {
       $scope.campaign = response;
     });
-  };  
+  };  */
 
   $scope.update = function() {
     console.log(("Delete[Campaign::#{id}]"));
     console.log($scope.campaign._id);
     $http.put('/campaignApi/' + $scope.campaign._id, $scope.campaign).success(function(response) {
       refresh();
+      growl.info(parse("Campaign with Title: %s edited successfully", $scope.campaign.title));
     })
   };
+
+  $scope.save = function(){
+  switch($scope.mode)    {
+    case "add":
+      $scope.create();
+      console.log("create campaign");
+      break;
+
+    case "edit":
+      $scope.update();
+      console.log("update campaign");
+      break;
+    }
+
+    $location.path("/campaign/list");
+  }
 
   $scope.deselect = function() {
     $scope.campaign = "";
   }
 
 }]);﻿
+
+campaignApp.directive('uiDate', function() {
+    return {
+      require: '?ngModel',
+      link: function($scope, element, attrs, controller) {
+        var originalRender, updateModel, usersOnSelectHandler;
+        if ($scope.uiDate == null) $scope.uiDate = {};
+        if (controller != null) {
+          updateModel = function(value, picker) {
+            return $scope.$apply(function() {
+              return controller.$setViewValue(element.datepicker("getDate"));
+            });
+          };
+          if ($scope.uiDate.onSelect != null) {
+            usersOnSelectHandler = $scope.uiDate.onSelect;
+            $scope.uiDate.onSelect = function(value, picker) {
+              updateModel(value);
+              return usersOnSelectHandler(value, picker);
+            };
+          } else {
+            $scope.uiDate.onSelect = updateModel;
+          }
+          originalRender = controller.$render;
+          controller.$render = function() {
+            originalRender();
+            return element.datepicker("setDate", controller.$viewValue);
+          };
+        }
+        return element.datepicker($scope.uiDate);
+      }
+    };
+  });
