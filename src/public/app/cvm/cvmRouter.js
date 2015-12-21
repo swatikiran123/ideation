@@ -24,6 +24,12 @@ angular.module('cvm.main').config(['$stateProvider', '$urlRouterProvider',
                 url: '/visit/add',
                 templateUrl: '/app/cvm/templates/visitAdd.html',
                 controller: 'visitControllerMain'
+            })
+
+            .state('visitLi', {
+                url: '/visit/list/:id/edit',
+                templateUrl: '/app/cvm/templates/visitAdd.html',
+                controller: 'visitControllerMain'
             });
     }
 ]);
