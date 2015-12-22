@@ -1,1 +1,175 @@
-Visit agenda form comes here
+ <div class="form-heading"><b><h1>Client visite mangement</h1></b></div><hr>
+    <div class="container data-form">
+<br><br>
+        <form class="form-horizontal" id="cvmForm" name="cvmForm" novalidate>
+
+            <!--visitOrganization-->
+            <div class="form-group" ng-class="{ 'has-error': cvmForm.visitOrganization.$touched && cvmForm.visitOrganization.$invalid }">
+                <label class="col-md-4 control-label">visitOrganization</label>  
+                <div class="col-md-4">
+                    <div class="input-group">
+                       <input type="text" size="45" id="Autocomplete" class="form-control" ng-autocomplete="result1" name="visitOrganization" id="visitOrganization" 
+                        placeholder="Enter the location" class="form-title form-control" 
+                        ng-model="cvm.visitOrganization" ng-minlength="1" ng-maxlength="5000" required>
+                        <div class="help-block" ng-messages="cvmForm.visitOrganization.$error" ng-if="cvmForm.visitOrganization.$touched">
+                        <div ng-messages-include="/app/partial/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!--visitAgenda-->          
+        <div class="form-group" ng-class="{ 'has-error': cvmForm.visitAgenda.$touched && cvmForm.visitAgenda.$invalid }">
+                <label class="col-md-4 control-label">visitAgenda </label>  
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <div text-angular ng-model="cvm.visitAgenda" name="visitAgenda"  placeholder="please click toggle html first and proceed"></div>
+                          <div class="help-block" ng-messages="cvmForm.visitAgenda.$error" ng-if="cvmForm.visitAgenda.$touched">
+                            <div ng-messages-include="/app/partial/messages.html"></div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <!--accountManager-->
+            <div class="form-group" ng-class="{ 'has-error': cvmForm.accountManager.$touched && cvmForm.accountManager.$invalid }">
+                <label class="col-md-4 control-label">accountManager </label>  
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input type="email" size="45" name="accountManager" id="accountManager" 
+                        placeholder="agm@gmail.com" class="form-title form-control" 
+                        ng-model="cvm.accountManager" ng-minlength="1" ng-maxlength="75" required>
+                         <div class="help-block" ng-messages="cvmForm.accountManager.$error" ng-if="cvmForm.accountManager.$touched">
+                         <div ng-messages-include="/app/partial/messages.html"></div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+
+        <!--visitCoordinator-->
+        <div class="form-group" ng-class="{ 'has-error': cvmForm.visitCoordinator.$touched && cvmForm.visitCoordinator.$invalid }">
+                <label class="col-md-4 control-label">visitCoordinator </label>  
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input type="email" size="45" name="visitCoordinator" id="visitCoordinator" 
+                        placeholder="agm@gmail.com" class="form-title form-control" 
+                        ng-model="cvm.visitCoordinator" ng-minlength="1" ng-maxlength="75" required>
+                          <div class="help-block" ng-messages="cvmForm.visitCoordinator.$error" ng-if="cvmForm.visitCoordinator.$touched">
+                            <div ng-messages-include="/app/partial/messages.html"></div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+<br><br>
+
+
+<!--schedule-->
+<b><h2>Schedule:</h2></b><br>
+<table class="table boldtable table-responsive table-bordered table-hover"  width="100" >
+    <thead class="data-grid-header">
+      <tr>
+        <th><span  class="glyphicon glyphicon-calendar"></span>Date</th>
+        <th><span  class="glyphicon glyphicon-globe"></span>Location</th>
+        <th><button class="btn btn-default" ng-click="hideSchedule=!hideSchedule"/>Add Schedule</th>
+      </tr>
+    </thead>
+    <tbody class="data-grid-data">
+    <tr ng-hide=hideSchedule>
+      <td><input date-range-picker name="daterange5" class="form-control date-picker" placeholder="Enter date" type="text" ng-model="schedule.date" options="{locale: {format: 'MMMM D, YYYY'}}" clearable='true' required/></td>
+            <!--remember to add details options values in new schedule db js-->
+       <td><div class="move-down"><input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result1" name="visitOrganization" id="visitOrganization" placeholder="Enter the location" class="form-title form-control" 
+       ng-model="Schedule.visitOrganization" ng-minlength="1" ng-maxlength="5000" required></div></td>
+
+    <td><a class="table-btn" ng-click="addSchedule()"><span class="glyphicon glyphicon-plus" /></span></a>&nbsp;&nbsp;
+     <a class="table-btn" ng-click="updateSchedule()"><span class="glyphicon glyphicon-pencil"/></span></a>&nbsp;&nbsp;
+      <a class="table-btn" ng-click="deselectSchedule()"><span class="glyphicon glyphicon-remove"></span></a></td> 
+    </tr>
+    <tr ng-repeat="Schedule in Schedules | filter: search |orderBy:orderByField:reverseSort">
+        <td>{{Schedule.date}}</td>
+        <td>{{Schedule.location}}</td>
+        <td><button class="btn btn-danger" ng-click="removeVisitor(Schedule._id)">Remove</button>
+       <button class="btn btn-warning" ng-click="editVisitor(Schedule._id)">Edit</button></td>
+    </tr>
+ </tbody>
+</table>
+<br><br>
+
+
+
+<!--visitors grid-->
+<b><h2>visitors:</h2></b>
+ <table class="table boldtable table-responsive table-bordered table-hover"  width="100" >
+    <thead class="data-grid-header">
+      <tr>
+        <th><span class="glyphicon glyphicon-user"></span>Name</th>
+        <th><span class="glyphicon glyphicon-envelope"></span>Email</th>
+        <th><span class="glyphicon glyphicon-book"></span>phonenumber</th>
+        <th><button class="btn btn-default" ng-click="hideVisitor=!hideVisitor"/>Add Visitor</th>
+      </tr>
+      <tr ng-hide=hideVisitor>
+       <td><input type="text" ng-model="visitors.name" placeholder="visitor name"></td>
+       <td><input type="text" ng-model="visitors.email" placeholder="visitor email"></td>
+       <td><input type="text" ng-model="visitors.phonenumber" placeholder="visitor phone number"> </td>
+
+
+
+<td><a class="table-btn" ng-click="addContactVisitor()"><span class="glyphicon glyphicon-plus" /></span></a>&nbsp;&nbsp;
+     <a class="table-btn" ng-click="updateVisitor()"><span class="glyphicon glyphicon-pencil"/></span></a>&nbsp;&nbsp;
+      <a class="table-btn" ng-click="deselectVisitor()"><span class="glyphicon glyphicon-remove"></span></a></td> 
+
+    </thead>
+    <tbody class="data-grid-data">
+      <tr ng-repeat="visitors in grpVisitors | filter: search |orderBy:orderByField:reverseSort">
+        <td>{{visitors.name}}</td>
+        <td>{{visitors.email}}</td>
+        <td>{{visitors.phonenumber}}</td>
+      <!--<td>{{visitors.photo}}</td>
+      <td><img ng-src={{}}></td>-->
+       <td> <a class="table-btn" ng-click="editVisitor(visitors._id)"><span class="glyphicon glyphicon-edit" /></a>
+        <a class="table-btn" ng-click="removeVisitor(visitors._id)"><span class="glyphicon glyphicon-trash" /></a></td>
+       <!-- <td><button class="btn btn-danger" ng-click="removeVisitor(visitors._id)">Remove</button></td>
+        <td><button class="btn btn-warning" ng-click="editVisitor(visitors._id)">Edit</button></td>-->
+      </tr>
+    </tbody>
+ </table>
+
+
+
+
+
+
+ <br><br>
+ 	<button class="btn btn-primary" ng-click="addCvm()">Add visitor</button>
+ 	<button class="btn btn-warning" ng-click="clear()">Clear</button>
+  <button class="btn btn-info" ng-click="update()">Update</button>
+
+</form>
+ </div> 
+<!--
+<br><br>
+	<table class="table boldtable table-responsive table-bordered table-hover"  width="100" >  
+	<thead class="data-grid-header">
+      <tr>
+        <th>visitOrganization</th>
+        <th>accountManager</th>
+        <th>visitCoordinator</th>
+        <th>visit Agenda</th>
+        <th>Action</th>
+        
+      </tr>
+	</thead> 
+    <tbody class="data-grid-data">
+	<tr  ng-repeat="cvm in cvmList">
+    <td>{{cvm.visitOrganization}}</td> 
+ 		<td>{{cvm.accountManager}}</td>
+ 		<td>{{cvm.visitCoordinator}}</td>
+    <td>{{cvm.visitAgenda}}</td>
+ 		
+
+     	<td><a class="table-btn" ng-click="remove(cvm._id)"><span class="glyphicon glyphicon-trash" /></a>
+     	<a class="table-btn" ng-click="edit(cvm._id)"><span class="glyphicon glyphicon-edit" /></a></td>
+      
+
+	</tr>
+	</tbody>
+	</table>
+ -->
