@@ -1,3 +1,4 @@
+ <div ng-controller='visitControllerMain'>
  <div class="form-heading"><b><h1>Client visite mangement</h1></b></div><hr>
     <div class="container data-form">
 <br><br>
@@ -62,36 +63,7 @@
 <br><br>
 
 
-<!--schedule-->
-<b><h2>Schedule:</h2></b><br>
-<table class="table boldtable table-responsive table-bordered table-hover"  width="100" >
-    <thead class="data-grid-header">
-      <tr>
-        <th><span  class="glyphicon glyphicon-calendar"></span>Date</th>
-        <th><span  class="glyphicon glyphicon-globe"></span>Location</th>
-        <th><button class="btn btn-default" ng-click="hideSchedule=!hideSchedule"/>Add Schedule</th>
-      </tr>
-    </thead>
-    <tbody class="data-grid-data">
-    <tr ng-hide=hideSchedule>
-      <td><input date-range-picker name="daterange5" class="form-control date-picker" placeholder="Enter date" type="text" ng-model="schedule.date" options="{locale: {format: 'MMMM D, YYYY'}}" clearable='true' required/></td>
-            <!--remember to add details options values in new schedule db js-->
-       <td><div class="move-down"><input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result1" name="visitOrganization" id="visitOrganization" placeholder="Enter the location" class="form-title form-control" 
-       ng-model="Schedule.visitOrganization" ng-minlength="1" ng-maxlength="5000" required></div></td>
-
-    <td><a class="table-btn" ng-click="addSchedule()"><span class="glyphicon glyphicon-plus" /></span></a>&nbsp;&nbsp;
-     <a class="table-btn" ng-click="updateSchedule()"><span class="glyphicon glyphicon-pencil"/></span></a>&nbsp;&nbsp;
-      <a class="table-btn" ng-click="deselectSchedule()"><span class="glyphicon glyphicon-remove"></span></a></td> 
-    </tr>
-    <tr ng-repeat="Schedule in Schedules | filter: search |orderBy:orderByField:reverseSort">
-        <td>{{Schedule.date}}</td>
-        <td>{{Schedule.location}}</td>
-        <td><button class="btn btn-danger" ng-click="removeVisitor(Schedule._id)">Remove</button>
-       <button class="btn btn-warning" ng-click="editVisitor(Schedule._id)">Edit</button></td>
-    </tr>
- </tbody>
-</table>
-<br><br>
+<div ng-include src="'/app/cvm/templates/schedule.html'"></div>
 
 
 
@@ -144,7 +116,7 @@
 
 </form>
  </div> 
-<!--
+
 <br><br>
 	<table class="table boldtable table-responsive table-bordered table-hover"  width="100" >  
 	<thead class="data-grid-header">
@@ -153,6 +125,7 @@
         <th>accountManager</th>
         <th>visitCoordinator</th>
         <th>visit Agenda</th>
+        
         <th>Action</th>
         
       </tr>
@@ -163,6 +136,7 @@
  		<td>{{cvm.accountManager}}</td>
  		<td>{{cvm.visitCoordinator}}</td>
     <td>{{cvm.visitAgenda}}</td>
+    
  		
 
      	<td><a class="table-btn" ng-click="remove(cvm._id)"><span class="glyphicon glyphicon-trash" /></a>
@@ -172,4 +146,5 @@
 	</tr>
 	</tbody>
 	</table>
- -->
+
+   </div>

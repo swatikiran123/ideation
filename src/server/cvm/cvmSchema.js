@@ -6,22 +6,19 @@ var cvmSchema = new mongoose.Schema({
 visitOrganization: 	{ type: String },
 visitAgenda: 	{ type: String },
 accountManager: 	{ type: String },
-visitCoordinator: 	{ type: String }
-  
+visitCoordinator: 	{ type: String },
+Schedule:[{ type: mongoose.Schema.Types.ObjectId, ref: 'schedule'  }]
 });
 
  
-module.exports = mongoose.model('cvms', cvmSchema);
+module.exports = mongoose.model('visit', cvmSchema);
 
 console.log("visit schema defined")
-/*
-var cvmSchedule = new mongoose.Schema({
-location: 	{ type: String },
-date: 	{ type: String },
+
+var scheduleSchema = new mongoose.Schema({
+	dateStart: {type: String, ref: 'visit'},
+	locationHere: {type: String, ref: 'visit'}
 });
+module.exports = mongoose.model('schedule', scheduleSchema);
 
- 
-module.exports = mongoose.model('cvmSchedule', cvmSchedule);
-
-console.log("visitSchedule schema  defined")
-*/
+console.log("schedule schema defined")

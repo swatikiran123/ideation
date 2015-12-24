@@ -12,10 +12,8 @@ function visitControllerMain($scope, $cookieStore,$http) {
       console.log("I got the data I requested");
       $scope.cvmList = response;
       $scope.cvm = "";
-
-          console.log('add mode ready')
-            
-    });
+      console.log('add mode ready')
+      });
   };
 refresh();
 
@@ -33,7 +31,22 @@ $http.post('/cvmApi', $scope.cvm).success(function(response) {
     });
    };
 
+$scope.addSchedule=function(){
+console.log("im in add Schedule schema")
+console.log($scope.schedule);
+$http.post('/cvmApi', $scope.schedule).success(function(response) {
+      console.log(response);
+      refresh();
+    });
+   };   
+
 $scope.remove = function(id) {
+  console.log(id);
+  $http.delete('/cvmApi/' + id).success(function(response) {
+    refresh();
+  });
+};
+$scope.removeSchedule = function(id) {
   console.log(id);
   $http.delete('/cvmApi/' + id).success(function(response) {
     refresh();

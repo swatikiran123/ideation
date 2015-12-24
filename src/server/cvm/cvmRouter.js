@@ -5,6 +5,7 @@ var router = express.Router();
 //var mongojs = require('mongojs');
 //var db = mongojs('cvmModel', ['campaigns']);
 var cvmModel = require('./cvmSchema');
+//var cvmModel = require('./scheduleSchema');
 
 console.log("Cvm api router ready");
 /* GET /cvm listing. */
