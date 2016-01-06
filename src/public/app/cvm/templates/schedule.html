@@ -9,22 +9,24 @@
       </tr>
     </thead>
     <tbody class="data-grid-data">
-    <tr ng-hide=hideSchedule>
-      <!--<td><input type="text" model="schedule.dateStart"></td>
-      <td><input type="text" ng-model="schedule.locationHere"></td>-->
-      <td><input date-range-picker name="daterange5" class="form-control date-picker" placeholder="Enter date" type="text" ng-model="schedule.dateStart" options="{locale: {format: 'MMMM D, YYYY'}}" clearable='true' required/></td>
+    <tr ng-hide="hideSchedule">
+
+      <td><input type="date" ng-model="schedule.dateStart"></td>
+      
+
+      <!--<td><input date-range-picker name="daterange5" class="form-control date-picker" placeholder="Enter date" type="text" ng-model="schedule.dateStart" options="{locale: {format: 'MMMM DD, YYYY'}}" clearable='true' required/></td>-->
             
        <td><div class="move-down"><input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result1" name="locationHere" id="locationHere" placeholder="Enter the locationHere" class="form-title form-control" 
        ng-model="schedule.locationHere" ng-minlength="1" ng-maxlength="5000" required></div></td>
 
-    <td><button class="btn btn-primary" ng-click="addSchedule()">Add Schedule</button></td> 
+    <td><button class="btn btn-primary" ng-click="addSchedule(schedule)">Add Schedule</button></td> 
     </tr>
-    <tr ng-repeat="schedule in cvmList | filter: search |orderBy:orderByField:reverseSort">
+    <tr ng-repeat="schedule in schedules | filter: search |orderBy:orderByField:reverseSort">
         <td>{{schedule.dateStart}}</td>
         <td>{{schedule.locationHere}}</td>
-        <td><a class="table-btn" ng-click="removeSchedule(schedule._id)"><span class="glyphicon glyphicon-trash" /></a>
-            <button class="btn btn-warning" ng-click="editSchedule(schedule._id)">Edit</button></td>
+        <td><a class="table-btn" ng-click="removeSchedule($index)"><span class="glyphicon glyphicon-trash" /></a></td>
     </tr>
+
  </tbody>
 </table>
-<br><br>
+<br><button class="btn btn-primary" ng-click="scheduleOk()">OK</button><br>

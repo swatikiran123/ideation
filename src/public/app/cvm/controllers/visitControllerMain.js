@@ -17,28 +17,38 @@ function visitControllerMain($scope, $cookieStore,$http) {
   };
 refresh();
 
+$scope.schedules=[];
+$scope.schedule='';
 $scope.result1 = '';
 $scope.content = 'llll';
 $scope.hideSchedule=true;
 $scope.hideVisitor=true;
 $scope.hideFilter=true;
 
+//cvm
+/*
+
+var inData={'cvm': $scope.cvm,'schedules': $scope.schedules};
 $scope.addCvm=function(){
 console.log($scope.cvm);
-$http.post('/cvmApi', $scope.cvm).success(function(response) {
+console.log($scope.schedules);
+$http.post('/cvmApi',inData).success(function(response) {
       console.log(response);
       refresh();
     });
    };
+*/
+$scope.addCvm = function(){
+    var inData       = $scope.cvm;
+    inData.schedules = $scope.schedules;
 
-$scope.addSchedule=function(){
-console.log("im in add Schedule schema")
-console.log($scope.schedule);
-$http.post('/cvmApi', $scope.schedule).success(function(response) {
-      console.log(response);
-      refresh();
+    console.log(inData);
+
+    $http.post('/cvmApi',inData).success(function(response) {
+        console.log(response);
+        refresh();
     });
-   };   
+};
 
 $scope.remove = function(id) {
   console.log(id);
@@ -46,13 +56,6 @@ $scope.remove = function(id) {
     refresh();
   });
 };
-$scope.removeSchedule = function(id) {
-  console.log(id);
-  $http.delete('/cvmApi/' + id).success(function(response) {
-    refresh();
-  });
-};
-
 $scope.edit = function(id) {
   console.log(id);
   $http.get('/cvmApi/' + id).success(function(response) {
@@ -72,4 +75,30 @@ $scope.update = function() {
 $scope.clear = function() {
     $scope.cvm = "";
   }
+
+//schedule
+
+$scope.addSchedule=function(schedule){
+  
+  console.log(schedule.dateStart);
+  console.log(schedule.locationHere)
+
+ $scope.schedules.push({
+                      dateStart: schedule.dateStart,
+                      locationHere: schedule.locationHere
+                    });
+
+schedule.dateStart='';
+schedule.locationHere='';
+    };
+
+$scope.removeSchedule = function(index){
+    $scope.schedules.splice(index, 1);
+   }; 
+
+$scope.scheduleOk=function(){
+  
+  console.log($scope.schedules);
+};
+
 }

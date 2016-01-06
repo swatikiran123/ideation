@@ -64,49 +64,7 @@
 
 
 <div ng-include src="'/app/cvm/templates/schedule.html'"></div>
-
-
-
-<!--visitors grid-->
-<b><h2>visitors:</h2></b>
- <table class="table boldtable table-responsive table-bordered table-hover"  width="100" >
-    <thead class="data-grid-header">
-      <tr>
-        <th><span class="glyphicon glyphicon-user"></span>Name</th>
-        <th><span class="glyphicon glyphicon-envelope"></span>Email</th>
-        <th><span class="glyphicon glyphicon-book"></span>phonenumber</th>
-        <th><button class="btn btn-default" ng-click="hideVisitor=!hideVisitor"/>Add Visitor</th>
-      </tr>
-      <tr ng-hide=hideVisitor>
-       <td><input type="text" ng-model="visitors.name" placeholder="visitor name"></td>
-       <td><input type="text" ng-model="visitors.email" placeholder="visitor email"></td>
-       <td><input type="text" ng-model="visitors.phonenumber" placeholder="visitor phone number"> </td>
-
-
-
-<td><a class="table-btn" ng-click="addContactVisitor()"><span class="glyphicon glyphicon-plus" /></span></a>&nbsp;&nbsp;
-     <a class="table-btn" ng-click="updateVisitor()"><span class="glyphicon glyphicon-pencil"/></span></a>&nbsp;&nbsp;
-      <a class="table-btn" ng-click="deselectVisitor()"><span class="glyphicon glyphicon-remove"></span></a></td> 
-
-    </thead>
-    <tbody class="data-grid-data">
-      <tr ng-repeat="visitors in grpVisitors | filter: search |orderBy:orderByField:reverseSort">
-        <td>{{visitors.name}}</td>
-        <td>{{visitors.email}}</td>
-        <td>{{visitors.phonenumber}}</td>
-      <!--<td>{{visitors.photo}}</td>
-      <td><img ng-src={{}}></td>-->
-       <td> <a class="table-btn" ng-click="editVisitor(visitors._id)"><span class="glyphicon glyphicon-edit" /></a>
-        <a class="table-btn" ng-click="removeVisitor(visitors._id)"><span class="glyphicon glyphicon-trash" /></a></td>
-       <!-- <td><button class="btn btn-danger" ng-click="removeVisitor(visitors._id)">Remove</button></td>
-        <td><button class="btn btn-warning" ng-click="editVisitor(visitors._id)">Edit</button></td>-->
-      </tr>
-    </tbody>
- </table>
-
-
-
-
+<div ng-include src="'/app/cvm/templates/numVisitors.html'"></div>
 
 
  <br><br>
