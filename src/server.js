@@ -14,7 +14,7 @@ var campaignApi = require('./server/campaign/campaignRouter');
 var ideaApi = require('./server/idea/ideaRouter');
 var userApi = require('./server/user/userRouter');
 var loginApi = require('./server/user/loginRouter');
-var cvmApi = require('./server/cvm/cvmRouter');
+var visitApi = require('./server/cvm/cvmRouter');
 
 global.config = require('konfig')()
 
@@ -53,7 +53,7 @@ app.use('/campaignApi', campaignApi);
 app.use('/ideaApi', ideaApi);
 app.use('/userApi', userApi);
 app.use('/loginApi', loginApi);
-app.use('/cvmApi', cvmApi);
+app.use('/visitApi', visitApi);
 //app.use('/dashboard', express.static('public/app/dashboard'));
 
 var path = require("path"); 

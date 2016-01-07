@@ -2,17 +2,17 @@
  <div class="form-heading"><b><h1>Client visite mangement</h1></b></div><hr>
     <div class="container data-form">
 <br><br>
-        <form class="form-horizontal" id="cvmForm" name="cvmForm" novalidate>
+        <form class="form-horizontal" id="visitForm" name="visitForm" novalidate>
 
             <!--visitOrganization-->
-            <div class="form-group" ng-class="{ 'has-error': cvmForm.visitOrganization.$touched && cvmForm.visitOrganization.$invalid }">
+            <div class="form-group" ng-class="{ 'has-error': visitForm.visitOrganization.$touched && visitForm.visitOrganization.$invalid }">
                 <label class="col-md-4 control-label">visitOrganization</label>  
                 <div class="col-md-4">
                     <div class="input-group">
                        <input type="text" size="45" id="Autocomplete" class="form-control" ng-autocomplete="result1" name="visitOrganization" id="visitOrganization" 
                         placeholder="Enter the location" class="form-title form-control" 
-                        ng-model="cvm.visitOrganization" ng-minlength="1" ng-maxlength="5000" required>
-                        <div class="help-block" ng-messages="cvmForm.visitOrganization.$error" ng-if="cvmForm.visitOrganization.$touched">
+                        ng-model="visit.visitOrganization" ng-minlength="1" ng-maxlength="5000" required>
+                        <div class="help-block" ng-messages="visitForm.visitOrganization.$error" ng-if="visitForm.visitOrganization.$touched">
                         <div ng-messages-include="/app/partial/messages.html"></div>
                         </div>
                     </div>
@@ -20,26 +20,26 @@
             </div>
 
         <!--visitAgenda-->          
-        <div class="form-group" ng-class="{ 'has-error': cvmForm.visitAgenda.$touched && cvmForm.visitAgenda.$invalid }">
+        <div class="form-group" ng-class="{ 'has-error': visitForm.visitAgenda.$touched && visitForm.visitAgenda.$invalid }">
                 <label class="col-md-4 control-label">visitAgenda </label>  
                 <div class="col-md-4">
                     <div class="input-group">
-                        <div text-angular ng-model="cvm.visitAgenda" name="visitAgenda"  placeholder="please click toggle html first and proceed"></div>
-                          <div class="help-block" ng-messages="cvmForm.visitAgenda.$error" ng-if="cvmForm.visitAgenda.$touched">
+                        <div text-angular ng-model="visit.visitAgenda" name="visitAgenda"  placeholder="please click toggle html first and proceed"></div>
+                          <div class="help-block" ng-messages="visitForm.visitAgenda.$error" ng-if="visitForm.visitAgenda.$touched">
                             <div ng-messages-include="/app/partial/messages.html"></div>
                           </div>
                     </div>
                 </div>
             </div>
             <!--accountManager-->
-            <div class="form-group" ng-class="{ 'has-error': cvmForm.accountManager.$touched && cvmForm.accountManager.$invalid }">
+            <div class="form-group" ng-class="{ 'has-error': visitForm.accountManager.$touched && visitForm.accountManager.$invalid }">
                 <label class="col-md-4 control-label">accountManager </label>  
                 <div class="col-md-4">
                     <div class="input-group">
                         <input type="email" size="45" name="accountManager" id="accountManager" 
                         placeholder="agm@gmail.com" class="form-title form-control" 
-                        ng-model="cvm.accountManager" ng-minlength="1" ng-maxlength="75" required>
-                         <div class="help-block" ng-messages="cvmForm.accountManager.$error" ng-if="cvmForm.accountManager.$touched">
+                        ng-model="visit.accountManager" ng-minlength="1" ng-maxlength="75" required>
+                         <div class="help-block" ng-messages="visitForm.accountManager.$error" ng-if="visitForm.accountManager.$touched">
                          <div ng-messages-include="/app/partial/messages.html"></div>
                           </div>
                     </div>
@@ -47,14 +47,14 @@
             </div>
 
         <!--visitCoordinator-->
-        <div class="form-group" ng-class="{ 'has-error': cvmForm.visitCoordinator.$touched && cvmForm.visitCoordinator.$invalid }">
+        <div class="form-group" ng-class="{ 'has-error': visitForm.visitCoordinator.$touched && visitForm.visitCoordinator.$invalid }">
                 <label class="col-md-4 control-label">visitCoordinator </label>  
                 <div class="col-md-4">
                     <div class="input-group">
                         <input type="email" size="45" name="visitCoordinator" id="visitCoordinator" 
                         placeholder="agm@gmail.com" class="form-title form-control" 
-                        ng-model="cvm.visitCoordinator" ng-minlength="1" ng-maxlength="75" required>
-                          <div class="help-block" ng-messages="cvmForm.visitCoordinator.$error" ng-if="cvmForm.visitCoordinator.$touched">
+                        ng-model="visit.visitCoordinator" ng-minlength="1" ng-maxlength="75" required>
+                          <div class="help-block" ng-messages="visitForm.visitCoordinator.$error" ng-if="visitForm.visitCoordinator.$touched">
                             <div ng-messages-include="/app/partial/messages.html"></div>
                           </div>
                     </div>
@@ -68,7 +68,7 @@
 
 
  <br><br>
- 	<button class="btn btn-primary" ng-click="addCvm()">Add visitor</button>
+ 	<button class="btn btn-primary" ng-click="addvisit()">Add visitor</button>
  	<button class="btn btn-warning" ng-click="clear()">Clear</button>
   <button class="btn btn-info" ng-click="update()">Update</button>
 
@@ -89,16 +89,16 @@
       </tr>
 	</thead> 
     <tbody class="data-grid-data">
-	<tr  ng-repeat="cvm in cvmList">
-    <td>{{cvm.visitOrganization}}</td> 
- 		<td>{{cvm.accountManager}}</td>
- 		<td>{{cvm.visitCoordinator}}</td>
-    <td>{{cvm.visitAgenda}}</td>
+	<tr  ng-repeat="visit in visitList">
+    <td>{{visit.visitOrganization}}</td> 
+ 		<td>{{visit.accountManager}}</td>
+ 		<td>{{visit.visitCoordinator}}</td>
+    <td>{{visit.visitAgenda}}</td>
     
  		
 
-     	<td><a class="table-btn" ng-click="remove(cvm._id)"><span class="glyphicon glyphicon-trash" /></a>
-     	<a class="table-btn" ng-click="edit(cvm._id)"><span class="glyphicon glyphicon-edit" /></a></td>
+     	<td><a class="table-btn" ng-click="remove(visit._id)"><span class="glyphicon glyphicon-trash" /></a>
+     	<a class="table-btn" ng-click="edit(visit._id)"><span class="glyphicon glyphicon-edit" /></a></td>
       
 
 	</tr>
