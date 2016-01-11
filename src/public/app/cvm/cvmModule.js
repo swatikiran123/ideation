@@ -1,1 +1,1 @@
-angular.module('cvm.main', ['ui.bootstrap', 'ui.router', 'ngCookies', 'ngAutocomplete', 'textAngular','daterangepicker']);
+angular.module('cvm.main', ['ui.bootstrap', 'ui.router', 'ngCookies', 'textAngular']);

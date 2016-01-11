@@ -14,7 +14,7 @@ var campaignApi = require('./server/campaign/campaignRouter');
 var ideaApi = require('./server/idea/ideaRouter');
 var userApi = require('./server/user/userRouter');
 var loginApi = require('./server/user/loginRouter');
-var visitApi = require('./server/cvm/cvmRouter');
+var visitApi = require('./server/cvm/visitRouter');
 
 global.config = require('konfig')()
 

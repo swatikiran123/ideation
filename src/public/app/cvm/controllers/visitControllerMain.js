@@ -3,7 +3,7 @@
 angular.module('cvm.main')
     .controller('visitControllerMain', ['$scope', '$cookieStore','$http', visitControllerMain]);
 
-function visitControllerMain($scope, $cookieStore,$http) {
+function visitControllerMain($scope, $cookieStore, $http) {
 
     console.log("visit controller invoked");
 
@@ -12,13 +12,13 @@ function visitControllerMain($scope, $cookieStore,$http) {
       console.log("I got the data I requested");
       $scope.visitList = response;
       $scope.visit = "";
+      $scope.schedules=[];
       console.log('add mode ready')
       });
   };
 refresh();
 
 $scope.schedules=[];
-$scope.schedule='';
 $scope.result1 = '';
 $scope.content = 'llll';
 $scope.hideSchedule=true;
@@ -29,8 +29,8 @@ $scope.hideFilter=true;
 $scope.addvisit = function(){
     var inData       = $scope.visit;
     inData.schedules = $scope.schedules;
-
     console.log(inData);
+
 
     $http.post('/visitApi',inData).success(function(response) {
         console.log(response);
@@ -44,10 +44,13 @@ $scope.remove = function(id) {
     refresh();
   });
 };
+
 $scope.edit = function(id) {
   console.log(id);
   $http.get('/visitApi/' + id).success(function(response) {
-    $scope.visit = response;
+   var visit=response;
+   $scope.schedules=visit.schedules;
+   $scope.visit=visit;
   });
 }; 
    

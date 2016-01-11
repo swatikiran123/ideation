@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-/* POST /c5vm */
+/* POST /visit */
 router.post('/', function(req, res, next) {
   console.log("visit api post '/'");
   console.log("retrieving:: " + req.body);
